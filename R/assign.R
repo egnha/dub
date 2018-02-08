@@ -29,7 +29,7 @@
 
 #' @export
 #' @rdname assign
-`%=>%` <- opp(`%<=%`)
+`%=>%` <- opposite(`%<=%`)
 
 positioned_names <- function(expr) {
   nms <- do.call("substitute", list(as_strings(expr), struts))
