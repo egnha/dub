@@ -5,7 +5,7 @@
 
 *dub* is a tiny R package that enables you to assign the components of a
 list or vector to names (“unpacking assignment”) via *literal pattern
-matching*, using an operator `%<=%`. Think of `<=` as a pictograph
+matching*, using an operator `%<=%`—think of `<=` as a pictograph
 representing a double `<-`.
 
 ``` r
