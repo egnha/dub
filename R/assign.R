@@ -33,7 +33,7 @@
 
 positioned_names <- function(expr) {
   nms <- do.call("substitute", list(as_strings(expr), struts))
-  eval(nms)[[1]]  # Strip enclosing list
+  eval(nms)[[1]]
 }
 
 as_strings <- function(expr) {
