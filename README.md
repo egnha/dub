@@ -59,7 +59,7 @@ devtools::install_github("egnha/dub")
   - The ad hoc pattern-matching syntax is very compact and avoids
     conflicting with R’s existing semantics. (dub appropriates `` `:` ``
     as a symbol concatenator, in a strictly localized context; the usual
-    `` `:` `` is a operator of an altogether different type and
+    `` `:` `` is an operator of an altogether different type and
     semantics.)
 
   - The code is kept deliberately small—around 40 lines—to make it easy
