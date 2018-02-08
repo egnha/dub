@@ -61,7 +61,7 @@ The code is small because the objective is simple. The tree structure of the pat
 
 Unpacking/multiple assignment appears in other languages, e.g., [Python](https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences) and [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment). While R has no such feature built-in, the idea of using a custom operator to do this has long been folklore knowledge. The earliest implementation that I could find is due to [Gabor Grothendieck](https://stat.ethz.ch/pipermail/r-help/2004-June/053343.html) (2004).
 
-If you're looking for a robust and full-featured option for tuple unpacking, or you want to combine subsequence splicing and assignment in one operation, use the [zeallot](https://github.com/nteetor/zeallot) package by [Nate Teetor](https://github.com/nteetor).
+If you're looking for a robust and full-featured option for tuple unpacking, or you want to combine subsequence splicing and assignment in a single operation, use the [zeallot](https://github.com/nteetor/zeallot) package by [Nate Teetor](https://github.com/nteetor).
 
 ## License
 

@@ -86,8 +86,9 @@ Grothendieck](https://stat.ethz.ch/pipermail/r-help/2004-June/053343.html)
 
 If you’re looking for a robust and full-featured option for tuple
 unpacking, or you want to combine subsequence splicing and assignment in
-one operation, use the [zeallot](https://github.com/nteetor/zeallot)
-package by [Nate Teetor](https://github.com/nteetor).
+a single operation, use the
+[zeallot](https://github.com/nteetor/zeallot) package by [Nate
+Teetor](https://github.com/nteetor).
 
 ## License
 
