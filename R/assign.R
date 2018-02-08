@@ -1,6 +1,6 @@
 assignable <- function(nm) nm != "."
 
-#' Assign names to the components of a list or vector
+#' Assign the components of a list or vector to names
 #'
 #' @param pattern Assignment pattern (see examples).
 #' @param value List or vector.

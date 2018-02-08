@@ -4,7 +4,7 @@
 \alias{assign}
 \alias{\%<=\%}
 \alias{\%=>\%}
-\title{Assign names to the components of a list or vector}
+\title{Assign the components of a list or vector to names}
 \usage{
 pattern \%<=\% value
 
@@ -19,7 +19,7 @@ value \%=>\% pattern
 Returns \code{value} invisibly.
 }
 \description{
-Assign names to the components of a list or vector
+Assign the components of a list or vector to names
 }
 \examples{
 (one : two) \%<=\% c(1, 2)
