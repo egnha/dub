@@ -36,7 +36,7 @@ assignable <- function(nm) nm != "."
 
 positioned_names <- function(expr) {
   nms <- do.call("substitute", list(as_strings(expr), struts))
-  as.list(eval(nms)[[1]])  # Maintain type consistency
+  as.list(eval(nms)[[1]])  # Ensure type consistency
 }
 
 as_strings <- function(expr) {
