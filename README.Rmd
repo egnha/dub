@@ -13,6 +13,8 @@ knitr::opts_chunk$set(
 )
 ```
 
+> Use [zeallot](https://github.com/nteetor/zeallot). I wrote this package for my own edification. _–EH_
+
 # dub
 
 _dub_ is a tiny R package that provides an operator `%<=%` that enables you to use _pattern matching_ to selectively assign the components of a list or vector to names (_unpacking assignment_). Think of `<=` as a pictograph representing multiple `<-`'s.

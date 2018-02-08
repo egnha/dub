@@ -1,6 +1,9 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+> Use [zeallot](https://github.com/nteetor/zeallot). I wrote this
+> package for my own edification. *–EH*
+
 # dub
 
 *dub* is a tiny R package that provides an operator `%<=%` that enables
