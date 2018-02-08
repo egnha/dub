@@ -3,8 +3,8 @@ Type: Package
 Title: Unpacking Assignment for Lists and Vectors via Pattern Matching
 Version: 0.0.0.9000
 Authors@R: person("Eugene", "Ha", , "eha@posteo.de", c("aut", "cre"))
-Description: Assign names to the components of a list or vector by literal
-  pattern matching.
+Description: Use literal pattern matching to assign the components of a list
+  or vector to names.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
