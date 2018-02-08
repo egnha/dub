@@ -8,5 +8,6 @@ Description: Use literal pattern matching to assign the components of a list
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+Collate: 'util.R' 'assign.R'
 RoxygenNote: 6.0.1
 Roxygen: list(markdown = TRUE)
