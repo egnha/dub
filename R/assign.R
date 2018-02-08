@@ -14,6 +14,7 @@ assignable <- function(nm) nm != "."
 #' (a : (. : (c : d) : e)) %<=% list(1, list(2, list(3, 4), 5))
 #' (. : (. : b : .)) %<=% list(1, list(2, list(3, 4), 5))
 #' (z : .) %<=% list(list(1))
+#' (z) %<=% list(list(1))
 #' ((x : y)) %<=% list(list(1, 2))
 #'
 #' @export
@@ -35,7 +36,7 @@ assignable <- function(nm) nm != "."
 
 positioned_names <- function(expr) {
   nms <- do.call("substitute", list(as_strings(expr), struts))
-  eval(nms)[[1]]
+  as.list(eval(nms)[[1]])  # Maintain type consistency
 }
 
 as_strings <- function(expr) {
