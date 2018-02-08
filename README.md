@@ -70,11 +70,10 @@ To that end:
     `` `:` `` is an operator of an altogether different type and
     semantics.)
 
-  - The code is kept deliberately small—around 40 lines—to make it easy
-    to grasp (granting some familiarity with [computing on the
-    language](https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Computing-on-the-language)).
+  - To make the code short—around 40 lines—and easy to grasp, there are
+    no bells and whistles.
 
-The code is small because unpacking assignment is conceptually simple.
+The brevity of the code reflects the simplicity of unpacking assignment.
 The tree structure of the pattern on the left-hand side of `%<=%`
 mirrors that of the value on the right-hand side. In particular, they
 have the same leaves. Assignment is made by mapping over the non-dot
