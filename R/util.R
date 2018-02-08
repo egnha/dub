@@ -12,17 +12,7 @@ opposite <- function(f) {
 #' x <- list(1, b = "b", c = list(d = "d", list(4)))
 #' paths <- index_paths(x)
 #' lapply(paths, function(path) x[[path]])
-#' #> [[1]]
-#' #> [1] 1
-#' #>
-#' #> [[2]]
-#' #> [1] "b"
-#' #>
-#' #> [[3]]
-#' #> [1] "d"
-#' #>
-#' #> [[4]]
-#' #> [1] 4
+#' #> list(1, "b", "d", 4)
 #'
 #' @noRd
 index_paths <- function(x) {
