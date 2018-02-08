@@ -50,8 +50,6 @@ shares the semantics of `list()` (but not of `c()`).
 
 ## Installation
 
-Install from GitHub:
-
 ``` r
 # install.packages("devtools")
 devtools::install_github("egnha/dub")

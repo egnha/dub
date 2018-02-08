@@ -44,8 +44,6 @@ The pattern matching syntax comes from [Haskell](https://en.wikibooks.org/wiki/H
 
 ## Installation
 
-Install from GitHub:
-
 ```{r gh-installation, eval = FALSE}
 # install.packages("devtools")
 devtools::install_github("egnha/dub")
