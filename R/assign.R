@@ -20,7 +20,7 @@ assignable <- function(nm) nm != "."
 #' @export
 #' @name assign
 `%<=%` <- function(pattern, value) {
-  nms <- positioned_names(substitute(pattern))
+  nms <- position_names(substitute(pattern))
   val <- as.list(value)
   for (path in index_paths(nms)) {
     nm <- nms[[path]]
@@ -34,7 +34,7 @@ assignable <- function(nm) nm != "."
 #' @rdname assign
 `%=>%` <- opposite(`%<=%`)
 
-positioned_names <- function(expr) {
+position_names <- function(expr) {
   nms <- do.call("substitute", list(as_strings(expr), struts))
   as.list(eval(nms)[[1]])  # Ensure type consistency
 }
