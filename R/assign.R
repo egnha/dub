@@ -1,3 +1,5 @@
+assignable <- function(nm) nm != "."
+
 #' Assign names to the components of a list or vector
 #'
 #' @param pattern Assignment pattern (see examples).
@@ -21,7 +23,7 @@
   val <- as.list(value)
   for (path in index_paths(nms)) {
     nm <- nms[[path]]
-    if (nm != ".")
+    if (assignable(nm))
       assign(nm, val[[path]], envir = parent.frame())
   }
   invisible(value)
