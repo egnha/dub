@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 
 # dub
 
-_dub_ is a tiny R package that enables you to assign the components of a list or vector to names ("unpacking assignment") via _literal pattern matching_, using an operator `%<=%`—think of `<=` as a pictograph representing multiple `<-`.
+_dub_ is a tiny R package that provides an operator `%<=%` that enables you to use _pattern matching_ to selectively assign the components of a list or vector to names (_unpacking assignment_). Think of `<=` as a pictograph representing multiple `<-`'s.
 
 ```{r}
 library(dub)
@@ -38,7 +38,7 @@ a
 b
 ```
 
-The pattern matching syntax comes from [Haskell](https://en.wikibooks.org/wiki/Haskell/Pattern_matching). It shares the semantics of `list()` (but not of the concatenation function `c()`).
+The pattern matching syntax comes from [Haskell](https://en.wikibooks.org/wiki/Haskell/Pattern_matching). It shares the semantics of `list()` (but not of `c()`).
 
 ## Installation
 
@@ -51,7 +51,7 @@ devtools::install_github("egnha/dub")
 
 ## Design choices
 
-- The ad hoc pattern-matching syntax is very compact and doesn't conflict with R's existing semantics (dub appropriates `` `:` `` as an associative operator of symbols, whereas the built-in `` `:` `` is a range operator for integers).
+- The ad hoc pattern-matching syntax is very compact and avoids conflicting with R's existing semantics. (dub appropriates `` `:` `` as a symbol concatenator, in a strictly localized context; the usual `` `:` `` is a operator of an altogether different type and semantics.)
 
 - The code is kept deliberately small—around 40 lines—to make it easy to grasp (granting some familiarity with [computing on the language](https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Computing-on-the-language)).
 

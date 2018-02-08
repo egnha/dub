@@ -3,10 +3,10 @@
 
 # dub
 
-*dub* is a tiny R package that enables you to assign the components of a
-list or vector to names (“unpacking assignment”) via *literal pattern
-matching*, using an operator `%<=%`—think of `<=` as a pictograph
-representing multiple `<-`.
+*dub* is a tiny R package that provides an operator `%<=%` that enables
+you to use *pattern matching* to selectively assign the components of a
+list or vector to names (*unpacking assignment*). Think of `<=` as a
+pictograph representing multiple `<-`’s.
 
 ``` r
 library(dub)
@@ -43,8 +43,7 @@ b
 
 The pattern matching syntax comes from
 [Haskell](https://en.wikibooks.org/wiki/Haskell/Pattern_matching). It
-shares the semantics of `list()` (but not of the concatenation function
-`c()`).
+shares the semantics of `list()` (but not of `c()`).
 
 ## Installation
 
@@ -57,10 +56,11 @@ devtools::install_github("egnha/dub")
 
 ## Design choices
 
-  - The ad hoc pattern-matching syntax is very compact and doesn’t
-    conflict with R’s existing semantics (dub appropriates `` `:` `` as
-    an associative operator of symbols, whereas the built-in `` `:` ``
-    is a range operator for integers).
+  - The ad hoc pattern-matching syntax is very compact and avoids
+    conflicting with R’s existing semantics. (dub appropriates `` `:` ``
+    as a symbol concatenator, in a strictly localized context; the usual
+    `` `:` `` is a operator of an altogether different type and
+    semantics.)
 
   - The code is kept deliberately small—around 40 lines—to make it easy
     to grasp (granting some familiarity with [computing on the
