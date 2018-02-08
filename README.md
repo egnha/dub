@@ -7,7 +7,7 @@
 # dub
 
 *dub* is a tiny R package that provides an operator `%<=%` that enables
-you to use *pattern matching* to selectively assign the (nested)
+you to use pattern matching to selectively assign the (nested)
 components of a list or vector to names (*unpacking assignment*). Think
 of `<=` as a pictograph representing multiple `<-`’s.
 
