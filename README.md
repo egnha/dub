@@ -67,9 +67,8 @@ assignment:
   - assigning the top-level components of a list
   - unpacking nested components
 
-Moreover, the pattern matching syntax should be economical and avoid
-conflict with R’s established semantics, and the code should be short
-and easy to grasp.
+The pattern matching syntax should be economical and avoid conflict with
+R’s established semantics. The code should be short and easy to grasp.
 
 ### Implementation
 
