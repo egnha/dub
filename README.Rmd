@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 [![Coverage status](https://codecov.io/gh/egnha/dub/branch/master/graph/badge.svg)](https://codecov.io/github/egnha/dub?branch=master)
 ![Status](https://img.shields.io/badge/status-experimental-blue.svg)
 
-# dub
+# 𝓭𝓾𝓫
 
 _dub_ is a tiny R package that provides an operator `%<=%` that enables you to use pattern matching to selectively assign the (nested) components of a list or vector to names (_unpacking assignment_). Think of `<=` as a pictograph representing multiple `<-`'s.
 
