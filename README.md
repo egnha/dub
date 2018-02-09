@@ -4,6 +4,11 @@
 > Use [zeallot](https://github.com/nteetor/zeallot). I wrote this
 > package for my own edification. *–EH*
 
+[![Travis build
+status](https://travis-ci.org/egnha/dub.svg?branch=master)](https://travis-ci.org/egnha/dub)
+[![Coverage
+status](https://codecov.io/gh/egnha/dub/branch/master/graph/badge.svg)](https://codecov.io/github/egnha/dub?branch=master)
+
 # dub
 
 *dub* is a tiny R package that provides an operator `%<=%` that enables
