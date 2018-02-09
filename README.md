@@ -1,15 +1,11 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-> Use [zeallot](https://github.com/nteetor/zeallot). I wrote this
-> package for my own edification. *–EH*
-
 [![Travis build
 status](https://travis-ci.org/egnha/dub.svg?branch=master)](https://travis-ci.org/egnha/dub)
 [![Coverage
 status](https://codecov.io/gh/egnha/dub/branch/master/graph/badge.svg)](https://codecov.io/github/egnha/dub?branch=master)
-[![License:
-MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![Status](https://img.shields.io/badge/status-experimental-blue.svg)
 
 # dub
 
@@ -53,7 +49,7 @@ b
 
 The pattern matching syntax comes from
 [Haskell](https://en.wikibooks.org/wiki/Haskell/Pattern_matching)
-(except that dub’s matching is not greedy). It shares the semantics of
+(though dub’s matching is not greedy). It shares the semantics of
 `list()`.
 
 ## Installation
@@ -83,7 +79,7 @@ and easy to grasp.
     (namely, a range operator of integers).
 
   - To make the code short—around 40 lines—there are no bells and
-    whistles.
+    whistles, and no explicit validation.
 
 The brevity of the code reflects the simplicity of unpacking assignment:
 the leaves of the left-hand side of `%<=%` are matched via `<-` with the
@@ -102,10 +98,9 @@ due to [Gabor
 Grothendieck](https://stat.ethz.ch/pipermail/r-help/2004-June/053343.html)
 (2004).
 
-If you’re looking for a more robust and full-featured option for
-unpacking assignment, use the
-[zeallot](https://github.com/nteetor/zeallot) package by [Nate
-Teetor](https://github.com/nteetor).
+I recommend the [zeallot](https://github.com/nteetor/zeallot) package by
+[Nate Teetor](https://github.com/nteetor) as a more robust and
+full-featured option for unpacking assignment.
 
 ## License
 
