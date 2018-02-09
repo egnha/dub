@@ -44,7 +44,7 @@ z
 #> [[2]]
 #> [1] 3
 
-# Use a dot to drop components (the '_' in most other languages)
+# Use . to drop components (the _ in Haskell and Python)
 (a : (. : (. : b))) %<=% list(1, list(2, list(3, 4), 5))
 a
 #> [1] 1
