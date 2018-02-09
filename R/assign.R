@@ -18,7 +18,8 @@ assignable <- function(nm) nm != "."
 #' ((x : y)) %<=% list(list(1, 2))
 #'
 #' @export
-#' @name assign
+#' @rdname assign
+#' @aliases %<=%
 `%<=%` <- function(pattern, value) {
   nms <- position_names(substitute(pattern))
   val <- as.list(value)
