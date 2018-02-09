@@ -52,8 +52,9 @@ b
 ```
 
 The pattern matching syntax comes from
-[Haskell](https://en.wikibooks.org/wiki/Haskell/Pattern_matching). It
-shares the semantics of `list()` (but not of `c()`).
+[Haskell](https://en.wikibooks.org/wiki/Haskell/Pattern_matching)
+(except that dub’s matching is not greedy). It shares the semantics of
+`list()`.
 
 ## Installation
 
@@ -62,29 +63,32 @@ shares the semantics of `list()` (but not of `c()`).
 devtools::install_github("egnha/dub")
 ```
 
-## Design choices
+## Desiderata
 
 The main objective of dub is to cover the most common cases of unpacking
-assignment with a clean and concise pattern matching syntax—assigning
-the top-level components of a list and unpacking nested components—using
-as little code as possible (without sacrificing comprehensibility).
+assignment:
 
-To that end:
+  - assigning the top-level components of a list
+  - unpacking nested components
 
-  - The ad hoc pattern-matching syntax is economical and avoids conflict
-    with R’s established semantics. (dub appropriates `` `:` `` as a
-    symbol concatenator, in a strictly localized context; the usual
-    `` `:` `` is an operator of an altogether different type and
-    semantics.)
+Moreover, the pattern matching syntax should be economical and avoid
+conflict with R’s established semantics, and the code should be short
+and easy to grasp.
 
-  - To make the code short—around 40 lines—and easy to grasp, there are
-    no bells and whistles.
+### Implementation
 
-The brevity of the code reflects the simplicity of unpacking assignment.
-The tree structure of the pattern on the left-hand side of `%<=%`
-mirrors that of the value on the right-hand side. In particular, they
-have the same leaves. Assignment is made by mapping over the non-dot
-leaves. The only subtlety is to make `` `:` `` an associative operator.
+  - dub appropriates `` `:` `` as a *symbol* concatenator, in a strictly
+    localized context. There is no semantic conflict with the usual
+    `` `:` ``, which is an operator of an altogether different type
+    (namely, a range operator of integers).
+
+  - To make the code short—around 40 lines—there are no bells and
+    whistles.
+
+The brevity of the code reflects the simplicity of unpacking assignment:
+the leaves of the left-hand side of `%<=%` are matched via `<-` with the
+corresponding leaves on the right-hand side. The only subtlety is to
+make `` `:` `` an associative operator.
 
 ## Prior art
 
