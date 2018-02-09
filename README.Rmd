@@ -21,6 +21,8 @@ knitr::opts_chunk$set(
 
 _dub_ is a tiny R package that provides an operator `%<=%` that enables you to use pattern matching to selectively assign the (nested) components of a list or vector to names (_unpacking assignment_). Think of `<=` as a pictograph representing multiple `<-`'s.
 
+The pattern matching syntax comes from [Haskell](https://en.wikibooks.org/wiki/Haskell/Pattern_matching) (though dub's matching is not greedy). It shares the semantics of `list()`.
+
 ```{r}
 library(dub)
 
@@ -41,8 +43,6 @@ z
 a
 b
 ```
-
-The pattern matching syntax comes from [Haskell](https://en.wikibooks.org/wiki/Haskell/Pattern_matching) (though dub's matching is not greedy). It shares the semantics of `list()`.
 
 ## Installation
 

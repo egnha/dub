@@ -14,6 +14,11 @@ you to use pattern matching to selectively assign the (nested)
 components of a list or vector to names (*unpacking assignment*). Think
 of `<=` as a pictograph representing multiple `<-`’s.
 
+The pattern matching syntax comes from
+[Haskell](https://en.wikibooks.org/wiki/Haskell/Pattern_matching)
+(though dub’s matching is not greedy). It shares the semantics of
+`list()`.
+
 ``` r
 library(dub)
 
@@ -46,11 +51,6 @@ a
 b
 #> [1] 4
 ```
-
-The pattern matching syntax comes from
-[Haskell](https://en.wikibooks.org/wiki/Haskell/Pattern_matching)
-(though dub’s matching is not greedy). It shares the semantics of
-`list()`.
 
 ## Installation
 
