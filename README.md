@@ -82,9 +82,9 @@ and easy to grasp.
     whistles, and no explicit validation.
 
 The brevity of the code reflects the simplicity of unpacking assignment:
-the leaves of the left-hand side of `%<=%` are matched via `<-` with the
-corresponding leaves on the right-hand side. The only subtlety is to
-make `` `:` `` an associative operator.
+the leaves of the left-hand side of `%<=%` are matched, via `<-`, with
+the leaves on the right-hand side. The only subtlety is to make
+`` `:` `` an associative operator.
 
 ## Prior art
 
