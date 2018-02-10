@@ -21,8 +21,8 @@ assignable <- function(nm) nm != "."
 #' @rdname assign
 #' @aliases %<=%
 `%<=%` <- function(pattern, value) {
-  nms <- position_names(substitute(pattern))
   val <- as.list(value)
+  nms <- position_names(substitute(pattern), tree(val))
   for (path in index_paths(nms)) {
     nm <- nms[[path]]
     if (assignable(nm))
@@ -35,9 +35,10 @@ assignable <- function(nm) nm != "."
 #' @rdname assign
 `%=>%` <- opposite(`%<=%`)
 
-position_names <- function(expr) {
-  nms <- do.call("substitute", list(as_strings(expr), struts))
-  as.list(eval(nms)[[1]])  # Ensure type consistency
+position_names <- function(expr, tree) {
+  nms <- do.call("substitute", list(as_strings(expr), cons))
+  nms <- as.list(eval(nms)[[1]])
+  dots_expanded(nms, tree)
 }
 
 as_strings <- function(expr) {
@@ -48,5 +49,18 @@ as_strings <- function(expr) {
   expr
 }
 
-struts <- list("(" = quote(list), ":" = quote(concat))
+cons <- list("(" = quote(list), ":" = quote(concat))
 concat <- function(...) as.list(c(...))
+
+dots_expanded <- function(nms, tree) {
+  if (encapsulates_string(nms))
+    return(nms)
+  wh_dots <- which(nms == "...")
+  if (length(wh_dots) == 0)
+    return(Map(dots_expanded, nms, tree))
+  dots <- rep(".", length(tree) - length(nms) + 1)
+  before <-  seq_len(wh_dots - 1)
+  after  <- -seq_len(wh_dots)
+  rest   <- -seq_len(wh_dots - 1 + length(dots))
+  c(Recall(nms[before], tree[before]), dots, Recall(nms[after], tree[rest]))
+}
