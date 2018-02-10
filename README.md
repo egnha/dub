@@ -7,7 +7,7 @@ status](https://travis-ci.org/egnha/dub.svg?branch=master)](https://travis-ci.or
 status](https://codecov.io/gh/egnha/dub/branch/master/graph/badge.svg)](https://codecov.io/github/egnha/dub?branch=master)
 ![Status](https://img.shields.io/badge/status-experimental-blue.svg)
 
-# 𝓭𝓾𝓫
+# dub
 
 *dub* is a tiny R package that provides an operator `%<=%` that enables
 you to use pattern matching to selectively assign the (nested)
@@ -72,18 +72,18 @@ R’s established semantics. The code should be short and easy to grasp.
 
 ### Implementation
 
-  - dub appropriates `` `:` `` as a *symbol* concatenator, in a strictly
+  - dub appropriates `` `:` `` as a symbol concatenator, in a strictly
     localized context. There is no semantic conflict with the usual
     `` `:` ``, which is an operator of an altogether different type
     (namely, a range operator of integers).
 
-  - To make the code short—around 40 lines—there are no bells and
-    whistles, and no explicit validation.
+  - To make the code short—around 40 lines—explicit validation is
+    omitted.
 
 The brevity of the code reflects the simplicity of unpacking assignment:
 the leaves of the left-hand side of `%<=%` are matched, via `<-`, with
 the leaves on the right-hand side. The only subtlety is to make
-`` `:` `` an associative operator.
+`` `:` `` right-associative.
 
 ## Prior art
 

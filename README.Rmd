@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 [![Coverage status](https://codecov.io/gh/egnha/dub/branch/master/graph/badge.svg)](https://codecov.io/github/egnha/dub?branch=master)
 ![Status](https://img.shields.io/badge/status-experimental-blue.svg)
 
-# 𝓭𝓾𝓫
+# dub
 
 _dub_ is a tiny R package that provides an operator `%<=%` that enables you to use pattern matching to selectively assign the (nested) components of a list or vector to names (_unpacking assignment_). Think of `<=` as a pictograph representing multiple `<-`'s.
 
@@ -62,11 +62,11 @@ The pattern matching syntax should be economical and avoid conflict with R's est
 
 ### Implementation
 
-- dub appropriates `` `:` `` as a _symbol_ concatenator, in a strictly localized context. There is no semantic conflict with the usual `` `:` ``, which is an operator of an altogether different type (namely, a range operator of integers).
+- dub appropriates `` `:` `` as a symbol concatenator, in a strictly localized context. There is no semantic conflict with the usual `` `:` ``, which is an operator of an altogether different type (namely, a range operator of integers).
 
-- To make the code short—around 40 lines—there are no bells and whistles, and no explicit validation.
+- To make the code short—around 40 lines—explicit validation is omitted.
 
-The brevity of the code reflects the simplicity of unpacking assignment: the leaves of the left-hand side of `%<=%` are matched, via `<-`, with the leaves on the right-hand side. The only subtlety is to make `` `:` `` an associative operator.
+The brevity of the code reflects the simplicity of unpacking assignment: the leaves of the left-hand side of `%<=%` are matched, via `<-`, with the leaves on the right-hand side. The only subtlety is to make `` `:` `` right-associative.
 
 ## Prior art
 
