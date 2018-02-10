@@ -14,10 +14,9 @@ you to use pattern matching to selectively assign the (nested)
 components of a list or vector to names (*unpacking assignment*). Think
 of `<=` as a pictograph representing multiple `<-`’s.
 
-The pattern matching syntax comes from
-[Haskell](https://en.wikibooks.org/wiki/Haskell/Pattern_matching)
-(though dub’s matching is not greedy). It shares the semantics of
-`list()`.
+The concise pattern matching syntax comes from
+[Haskell](https://en.wikibooks.org/wiki/Haskell/Pattern_matching). It
+shares the semantics of `list()`.
 
 ``` r
 library(dub)
@@ -44,12 +43,14 @@ z
 #> [[2]]
 #> [1] 3
 
-# Use . to drop components (the _ in Haskell and Python)
-(a : (. : (. : b))) %<=% list(1, list(2, list(3, 4), 5))
+# Use . to drop specific components, ... to drop greedily
+(a : (. : (. : b) : ... : c)) %<=% list(1, list(2, list(3, 4), 5, 6, 7))
 a
 #> [1] 1
 b
 #> [1] 4
+c
+#> [1] 7
 ```
 
 ## Installation
@@ -77,7 +78,7 @@ R’s established semantics. The code should be short and easy to grasp.
     `` `:` ``, which is an operator of an altogether different type
     (namely, a range operator of integers).
 
-  - To make the code short—around 40 lines—explicit validation is
+  - To keep the code short—under 60 lines—explicit validation is
     omitted.
 
 The brevity of the code reflects the simplicity of unpacking assignment:

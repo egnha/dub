@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 
 _dub_ is a tiny R package that provides an operator `%<=%` that enables you to use pattern matching to selectively assign the (nested) components of a list or vector to names (_unpacking assignment_). Think of `<=` as a pictograph representing multiple `<-`'s.
 
-The pattern matching syntax comes from [Haskell](https://en.wikibooks.org/wiki/Haskell/Pattern_matching) (though dub's matching is not greedy). It shares the semantics of `list()`.
+The concise pattern matching syntax comes from [Haskell](https://en.wikibooks.org/wiki/Haskell/Pattern_matching). It shares the semantics of `list()`.
 
 ```{r}
 library(dub)
@@ -38,10 +38,11 @@ x
 y
 z
 
-# Use . to drop components (the _ in Haskell and Python)
-(a : (. : (. : b))) %<=% list(1, list(2, list(3, 4), 5))
+# Use . to drop specific components, ... to drop greedily
+(a : (. : (. : b) : ... : c)) %<=% list(1, list(2, list(3, 4), 5, 6, 7))
 a
 b
+c
 ```
 
 ## Installation
@@ -64,7 +65,7 @@ The pattern matching syntax should be economical and avoid conflict with R's est
 
 - dub appropriates `` `:` `` as a symbol concatenator, in a strictly localized context. There is no semantic conflict with the usual `` `:` ``, which is an operator of an altogether different type (namely, a range operator of integers).
 
-- To make the code short—around 40 lines—explicit validation is omitted.
+- To keep the code short—under 60 lines—explicit validation is omitted.
 
 The brevity of the code reflects the simplicity of unpacking assignment: the leaves of the left-hand side of `%<=%` are matched, via `<-`, with the leaves on the right-hand side. The only subtlety is to make `` `:` `` right-associative.
 
