@@ -16,7 +16,7 @@ of `<=` as a pictograph representing multiple `<-`’s.
 
 The concise pattern matching syntax comes from
 [Haskell](https://en.wikibooks.org/wiki/Haskell/Pattern_matching). It
-shares the semantics of `list()`.
+mirrors the semantics of `list()`.
 
 ``` r
 library(dub)
@@ -43,7 +43,7 @@ z
 #> [[2]]
 #> [1] 3
 
-# Use . to drop specific components, ... to drop greedily
+# Use . to drop specific components, ... to drop greedily (the _ in Haskell)
 (a : (. : (. : b) : ... : c)) %<=% list(1, list(2, list(3, 4), 5, 6, 7))
 a
 #> [1] 1
