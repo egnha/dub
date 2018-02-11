@@ -9,6 +9,6 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Suggests: covr, testthat
-Collate: 'util.R' 'tree.R' 'assign.R'
+Collate: 'util.R' 'tree.R' 'names.R' 'assign.R'
 RoxygenNote: 6.0.1
 Roxygen: list(markdown = TRUE)
