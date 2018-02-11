@@ -70,11 +70,11 @@ The pattern matching syntax should be economical and avoid conflict with R's est
 
 - To keep the code short, explicit validation is currently omitted.
 
-The brevity of the code reflects the simplicity of unpacking assignment: the leaves of the left-hand side of `%<=%` are matched, via `<-`, with the leaves on the right-hand side. The only subtleties are to handle greedy matching and make `` `:` `` right-associative.
+The brevity of the code reflects the simplicity of unpacking assignment: the leaves of the left-hand side of `%<=%` are matched, via `<-`, with the leaves on the right-hand side. The only subtlety is to handle greedy matching and make `` `:` `` right-associative.
 
 ## Prior art
 
-Unpacking/multiple assignment appears in other languages, e.g., [Python](https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences) and [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment). While R has no such feature, using a custom operator to do this has long been a folklore method. The earliest implementation that I could find is due to [Gabor Grothendieck](https://stat.ethz.ch/pipermail/r-help/2004-June/053343.html) (2004).
+Unpacking/multiple assignment appears in other languages, e.g., [Python](https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences) and [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment). While R has no such feature, using a custom operator to do this has long been a folklore method. To my knowledge, the earliest implementation is by [Gabor Grothendieck](https://stat.ethz.ch/pipermail/r-help/2004-June/053343.html) (2004).
 
 I recommend the [zeallot](https://github.com/nteetor/zeallot) package by [Nate Teetor](https://github.com/nteetor) as a more robust and full-featured option for unpacking assignment.
 

@@ -84,8 +84,8 @@ R’s established semantics. The code should be short and easy to grasp.
 
 The brevity of the code reflects the simplicity of unpacking assignment:
 the leaves of the left-hand side of `%<=%` are matched, via `<-`, with
-the leaves on the right-hand side. The only subtleties are to handle
-greedy matching and make `` `:` `` right-associative.
+the leaves on the right-hand side. The only subtlety is to handle greedy
+matching and make `` `:` `` right-associative.
 
 ## Prior art
 
@@ -94,8 +94,8 @@ Unpacking/multiple assignment appears in other languages, e.g.,
 and
 [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment).
 While R has no such feature, using a custom operator to do this has long
-been a folklore method. The earliest implementation that I could find is
-due to [Gabor
+been a folklore method. To my knowledge, the earliest implementation is
+by [Gabor
 Grothendieck](https://stat.ethz.ch/pipermail/r-help/2004-June/053343.html)
 (2004).
 
