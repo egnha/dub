@@ -78,8 +78,7 @@ R’s established semantics. The code should be short and easy to grasp.
     `` `:` ``, which is an operator of an altogether different type
     (namely, a range operator of integers).
 
-  - To keep the code short—under 60 lines—explicit validation is
-    omitted.
+  - To keep the code short, explicit validation is omitted.
 
 The brevity of the code reflects the simplicity of unpacking assignment:
 the leaves of the left-hand side of `%<=%` are matched, via `<-`, with
