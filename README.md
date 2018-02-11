@@ -84,8 +84,8 @@ R’s established semantics. The code should be short and easy to grasp.
 
 The brevity of the code reflects the simplicity of unpacking assignment:
 the leaves of the left-hand side of `%<=%` are matched, via `<-`, with
-the leaves on the right-hand side. The only subtlety is to make
-`` `:` `` right-associative.
+the leaves on the right-hand side. The only subtleties are to handle
+greedy matching and make `` `:` `` right-associative.
 
 ## Prior art
 

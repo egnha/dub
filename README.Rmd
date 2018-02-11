@@ -70,7 +70,7 @@ The pattern matching syntax should be economical and avoid conflict with R's est
 
 - To keep the code short, explicit validation is omitted.
 
-The brevity of the code reflects the simplicity of unpacking assignment: the leaves of the left-hand side of `%<=%` are matched, via `<-`, with the leaves on the right-hand side. The only subtlety is to make `` `:` `` right-associative.
+The brevity of the code reflects the simplicity of unpacking assignment: the leaves of the left-hand side of `%<=%` are matched, via `<-`, with the leaves on the right-hand side. The only subtleties are to handle greedy matching and make `` `:` `` right-associative.
 
 ## Prior art
 
