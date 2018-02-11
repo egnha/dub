@@ -9,14 +9,14 @@ status](https://codecov.io/gh/egnha/dub/branch/master/graph/badge.svg)](https://
 
 # dub
 
-*dub* is a tiny R package that provides an operator `%<=%` that enables
-you to use pattern matching to selectively assign the (nested)
-components of a list or vector to names (*unpacking assignment*). Think
-of `<=` as a pictograph representing multiple `<-`’s.
+*dub* is a tiny, single-purpose R package for *unpacking assignment*: it
+provides an operator `%<=%` that enables you to assign components of a
+list (or vector) to names, via pattern matching. Think of `<=` as a
+pictograph representing multiple `<-`’s.
 
-The concise pattern matching syntax comes from
-[Haskell](https://en.wikibooks.org/wiki/Haskell/Pattern_matching). It
-mirrors the semantics of `list()`.
+The pattern matching syntax, which comes from
+[Haskell](https://en.wikibooks.org/wiki/Haskell/Pattern_matching), is
+concise and flexible. It mirrors the semantics of `list()`.
 
 ``` r
 library(dub)
@@ -75,12 +75,12 @@ R’s established semantics. The code should be short and easy to grasp.
 
 ### Implementation
 
-  - dub appropriates `` `:` `` as a symbol concatenator, in a strictly
+  - dub overloads `` `:` `` as a symbol concatenator, in a strictly
     localized context. There is no semantic conflict with the usual
     `` `:` ``, which is an operator of an altogether different type
     (namely, a range operator of integers).
 
-  - To keep the code short, explicit validation is omitted.
+  - To keep the code short, explicit validation is currently omitted.
 
 The brevity of the code reflects the simplicity of unpacking assignment:
 the leaves of the left-hand side of `%<=%` are matched, via `<-`, with
