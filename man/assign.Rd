@@ -21,13 +21,13 @@ Returns \code{value} invisibly.
 Assign the components of a list or vector to names
 }
 \examples{
-(one : two) \%<=\% c(1, 2)
 (one : two) \%<=\% 1:2
+(one : two) \%<=\% list(1, 2)
 (p : (q : r : s)) \%<=\% list(1, list(2, 3, 4))
 (a : (. : (c : d) : e)) \%<=\% list(1, list(2, list(3, 4), 5))
 (. : (. : b : .)) \%<=\% list(1, list(2, list(3, 4), 5))
-(z : .) \%<=\% list(list(1))
 (z) \%<=\% list(list(1))
+((z)) \%<=\% list(list(1))
 ((x : y)) \%<=\% list(list(1, 2))
 
 }
