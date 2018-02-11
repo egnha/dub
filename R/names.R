@@ -1,7 +1,7 @@
 reify_names <- function(expr, tree) {
   nms <- do.call("substitute", list(as_strings(expr), cons))
   nms <- eval(nms)[[1]]
-  dots_expanded(nms, tree)
+  dots_matched(nms, tree)
 }
 
 cons <- list("(" = quote(list), ":" = quote(concat))
@@ -9,7 +9,7 @@ concat <- function(...) as.list(c(...))
 
 as_strings <- function(expr) {
   if (encloses_bare_name(expr))
-    return(as_get_first(expr))
+    return(as_head(expr))
   if (!is.call(expr))
     return(as.character(expr))
   for (i in 2:length(expr))
@@ -23,15 +23,15 @@ is_paren <- function(expr)
   is.call(expr) && identical(expr[[1]], sym_paren)
 sym_paren <- as.name("(")
 
-as_get_first <- function(expr)
+as_head <- function(expr)
   bquote((.(as.character(expr[[2]])) : NULL))
 
-dots_expanded <- function(nms, tree) {
+dots_matched <- function(nms, tree) {
   if (encapsulates_name(nms))
     return(nms)
   wh_dots <- which(nms == "...")
   if (length(wh_dots) == 0)
-    return(Map(dots_expanded, nms, tree))
+    return(Map(dots_matched, nms, tree))
   dots <- rep(".", length(tree) - length(nms) + 1)
   before <-  seq_len(wh_dots - 1)
   after  <- -seq_len(wh_dots)
