@@ -26,17 +26,20 @@ The concise pattern matching syntax comes from [Haskell](https://en.wikibooks.or
 ```{r}
 library(dub)
 
-(one : two : three) %<=% c(1, 2, 3)
+(one : two : three) %<=% 1:3
 one
 two
 three
 
-(x) %<=% list(1)
+(x) %<=% list(list("x"))
+((y)) %<=% list(list("y"))
 x
-
-((y : z)) %<=% list(list(1, list(2, 3)))
 y
-z
+
+(u : (v : w)) %<=% list(1, list(2, 3:4))
+u
+v
+w
 
 # Use . to drop specific components, ... to drop greedily (the _ in Haskell)
 (a : (. : (. : b) : ... : c)) %<=% list(1, list(2, list(3, 4), 5, 6, 7))

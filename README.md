@@ -21,7 +21,7 @@ mirrors the semantics of `list()`.
 ``` r
 library(dub)
 
-(one : two : three) %<=% c(1, 2, 3)
+(one : two : three) %<=% 1:3
 one
 #> [1] 1
 two
@@ -29,19 +29,21 @@ two
 three
 #> [1] 3
 
-(x) %<=% list(1)
+(x) %<=% list(list("x"))
+((y)) %<=% list(list("y"))
 x
-#> [1] 1
-
-((y : z)) %<=% list(list(1, list(2, 3)))
-y
-#> [1] 1
-z
 #> [[1]]
+#> [1] "x"
+y
+#> [1] "y"
+
+(u : (v : w)) %<=% list(1, list(2, 3:4))
+u
+#> [1] 1
+v
 #> [1] 2
-#> 
-#> [[2]]
-#> [1] 3
+w
+#> [1] 3 4
 
 # Use . to drop specific components, ... to drop greedily (the _ in Haskell)
 (a : (. : (. : b) : ... : c)) %<=% list(1, list(2, list(3, 4), 5, 6, 7))
