@@ -5,7 +5,7 @@
 status](https://travis-ci.org/egnha/dub.svg?branch=master)](https://travis-ci.org/egnha/dub)
 [![Coverage
 status](https://codecov.io/gh/egnha/dub/branch/master/graph/badge.svg)](https://codecov.io/github/egnha/dub?branch=master)
-![Status](https://img.shields.io/badge/status-experimental-blue.svg)
+![Status](https://img.shields.io/badge/status-WIP-blue.svg)
 
 # dub
 
