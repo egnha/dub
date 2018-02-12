@@ -1,8 +1,8 @@
-# `msg` may be an interpolated string, e.g., "foo {bar} and {baz}",
+# `errmsg` may be an interpolated string, e.g., "foo {bar} and {baz}",
 # where `bar` and `baz` are names in the calling environment of assert()
-assert <- function(cond, msg) {
+assert <- function(cond, errmsg) {
   if (!cond)
-    stop(interpolate(msg, parent.frame()), call. = FALSE)
+    stop(interpolate(errmsg, parent.frame()), call. = FALSE)
 }
 
 interpolate <- function(text, env) {
