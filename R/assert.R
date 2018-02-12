@@ -1,8 +1,16 @@
+attempt <- function(expr, errmsg) {
+  val <- tryCatch(expr, error = identity)
+  assert(is_not_error(val), errmsg, parent.frame())
+  val
+}
+
+is_not_error <- function(x) !inherits(x, "error")
+
 # `errmsg` may be an interpolated string, e.g., "foo {bar} and {baz}",
 # where `bar` and `baz` are names in the calling environment of assert()
-assert <- function(cond, errmsg) {
+assert <- function(cond, errmsg, env = parent.frame()) {
   if (!cond)
-    stop(interpolate(errmsg, parent.frame()), call. = FALSE)
+    stop(interpolate(errmsg, env), call. = FALSE)
 }
 
 interpolate <- function(text, env) {
