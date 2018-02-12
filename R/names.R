@@ -31,8 +31,10 @@ dots_matched <- function(nms, tree) {
   if (encapsulates_name(nms))
     return(nms)
   wh_dots <- which(nms == "...")
-  if (length(wh_dots) == 0)
+  if (length(wh_dots) == 0) {
+    assert(length(nms) == length(tree), "pattern doesn't match value")
     return(Map(dots_matched, nms, tree))
+  }
   dots <- rep(".", length(tree) - length(nms) + 1)
   before <-  seq_len(wh_dots - 1)
   after  <- -seq_len(wh_dots)
