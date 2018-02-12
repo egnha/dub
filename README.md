@@ -46,13 +46,12 @@ w
 #> [1] 3 4
 
 # Use . to drop specific components, ... to drop greedily (the _ in Haskell)
-(a : (. : (. : b) : ... : c)) %<=% list(1, list(2, list(3, 4), 5, 6, 7))
-a
-#> [1] 1
-b
-#> [1] 4
-c
-#> [1] 7
+(. : width : ... : species) %<=% iris
+head(width)
+#> [1] 3.5 3.0 3.2 3.1 3.6 3.9
+head(species)
+#> [1] setosa setosa setosa setosa setosa setosa
+#> Levels: setosa versicolor virginica
 ```
 
 ## Installation
