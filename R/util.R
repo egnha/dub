@@ -6,5 +6,5 @@ opposite <- function(f) {
   f
 }
 
-new_env <- function(...)
+bind_to_env <- function(...)
   list2env(list(...), parent = emptyenv())
