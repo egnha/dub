@@ -95,11 +95,12 @@ While R has no such feature, using a custom operator to do this has long
 been a folklore method. To my knowledge, the earliest implementation is
 by [Gabor
 Grothendieck](https://stat.ethz.ch/pipermail/r-help/2004-June/053343.html)
-(2004).
+(2004), cf. `list` in the
+[gsubfn](https://cran.r-project.org/package=gsubfn) package.
 
 I recommend the [zeallot](https://github.com/nteetor/zeallot) package by
-[Nate Teetor](https://github.com/nteetor) as a more robust and
-full-featured option for unpacking assignment.
+[Nate Teetor](https://github.com/nteetor) as a full-featured option for
+unpacking assignment.
 
 ## License
 
