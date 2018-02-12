@@ -71,6 +71,7 @@ assignment:
 
 The pattern matching syntax should be economical and avoid conflict with
 R’s established semantics. The code should be short and easy to grasp.
+There should be no external package dependencies.
 
 ### Implementation
 

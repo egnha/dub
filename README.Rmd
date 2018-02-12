@@ -61,7 +61,7 @@ The main objective of dub is to cover the most common cases of unpacking assignm
 - assigning the top-level components of a list
 - unpacking nested components
 
-The pattern matching syntax should be economical and avoid conflict with R's established semantics. The code should be short and easy to grasp.
+The pattern matching syntax should be economical and avoid conflict with R's established semantics. The code should be short and easy to grasp. There should be no external package dependencies.
 
 ### Implementation
 
