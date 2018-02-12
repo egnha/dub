@@ -38,7 +38,7 @@ dots_matched <- function(nms, tree) {
   dots <- rep(".", length(tree) - length(nms) + 1)
   before <-  seq_len(wh_dots - 1)
   after  <- -seq_len(wh_dots)
-  rest   <- -seq_len(wh_dots - 1 + length(dots)) %||% seq_along(tree)
+  rest   <- -seq_len(wh_dots - 1 + length(dots)) %??% seq_along(tree)
   c(Recall(nms[before], tree[before]), dots, Recall(nms[after], tree[rest]))
 }
 

@@ -1,4 +1,4 @@
-`%||%` <- function(lhs, rhs)
+`%??%` <- function(lhs, rhs)
   if (length(lhs) == 0) rhs else lhs
 
 is_string <- function(x)
