@@ -10,10 +10,10 @@ cons <- bind_to_env(
 )
 
 as_strings <- function(expr) {
-  if (encloses_bare_name(expr))
-    return(as_head(expr))
   if (!is.call(expr))
     return(as.character(expr))
+  if (encloses_bare_name(expr))
+    return(as_head(expr))
   assert(length(expr) > 1, "pattern contains empty call {expr}")
   for (i in 2:length(expr))
     expr[[i]] <- Recall(expr[[i]])
@@ -21,9 +21,7 @@ as_strings <- function(expr) {
 }
 
 encloses_bare_name <- function(expr)
-  is_paren(expr) && is.symbol(expr[[2]])
-is_paren <- function(expr)
-  is.call(expr) && identical(expr[[1]], sym_paren)
+  identical(expr[[1]], sym_paren) && is.symbol(expr[[2]])
 sym_paren <- as.name("(")
 
 as_head <- function(expr)
