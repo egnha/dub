@@ -19,5 +19,11 @@ empty <- function(matches) matches[[1]] == -1
 interpolated_names <- function(text, matches, env) {
   nms <- regmatches(text, matches)[[1]]
   nms <- gsub("[\\{\\}]", "", nms)
-  vapply(nms, function(nm) deparse(get(nm, envir = env)), character(1))
+  vapply(nms, deparse_quote, character(1), env = env)
+}
+
+deparse_quote <- function(nm, env) {
+  val <- get(nm, envir = env)
+  deparsed <- if (is.character(val)) val else deparse(val)
+  encodeString(deparsed, quote = "'")
 }
