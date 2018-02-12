@@ -9,9 +9,9 @@ status](https://codecov.io/gh/egnha/dub/branch/master/graph/badge.svg)](https://
 
 # dub
 
-*dub* is a tiny, single-purpose R package for *unpacking assignment*: it
-provides an operator `%<=%` that enables you to assign components of a
-list (or vector) to names, via pattern matching. Think of `<=` as a
+*dub* is a small, single-purpose R package for *unpacking assignment*:
+it provides an operator `%<=%` that enables you to assign components of
+a list (or vector) to names, via pattern matching. Think of `<=` as a
 pictograph representing multiple `<-`’s.
 
 The pattern matching syntax, which comes from
