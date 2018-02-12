@@ -14,7 +14,7 @@ as_strings <- function(expr) {
     return(as.character(expr))
   if (encloses_bare_name(expr))
     return(as_head(expr))
-  assert(length(expr) > 1, "pattern contains empty call {expr}")
+  assert(length(expr) > 1, "invalid pattern")
   for (i in 2:length(expr))
     expr[[i]] <- Recall(expr[[i]])
   expr
