@@ -1,8 +1,7 @@
 reify_names <- function(expr, tree) {
   nms <- as_strings(expr)
   nms <- attempt(eval(nms, env_cons), "invalid pattern")
-  nms <- attempt(dots_matched(nms[[1]], tree), "pattern doesn't match value")
-  nms
+  attempt(dots_matched(nms[[1]], tree), "pattern doesn't match value")
 }
 
 env_cons <- new_env(
