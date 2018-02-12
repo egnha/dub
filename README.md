@@ -75,12 +75,10 @@ There should be no external package dependencies.
 
 ### Implementation
 
-  - dub overloads `` `:` `` as a symbol concatenator, in a strictly
-    localized context. There is no semantic conflict with the usual
-    `` `:` ``, which is an operator of an altogether different type
-    (namely, a range operator of integers).
-
-  - To keep the code short, explicit validation is currently omitted.
+dub overloads `` `:` `` as a symbol concatenator, in a strictly
+localized context. There is no semantic conflict with the usual
+`` `:` ``, which is an operator of an altogether different type (namely,
+a range operator of integers).
 
 The brevity of the code reflects the simplicity of unpacking assignment:
 the leaves of the left-hand side of `%<=%` are matched, via `<-`, with
