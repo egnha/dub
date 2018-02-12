@@ -1,17 +1,21 @@
 reify_names <- function(expr, tree) {
-  nms <- do.call("substitute", list(as_strings(expr), cons))
-  nms <- eval(nms)[[1]]
-  dots_matched(nms, tree)
+  nms <- as_strings(expr)
+  nms <- attempt(eval(nms, env_cons), "invalid pattern")
+  nms <- attempt(dots_matched(nms[[1]], tree), "pattern doesn't match value")
+  nms
 }
 
-cons <- list("(" = quote(list), ":" = quote(concat))
-concat <- function(...) as.list(c(...))
+env_cons <- new_env(
+  "(" = list,
+  ":" = function(...) as.list(c(...))
+)
 
 as_strings <- function(expr) {
   if (encloses_bare_name(expr))
     return(as_head(expr))
   if (!is.call(expr))
     return(as.character(expr))
+  assert(length(expr) > 1, "pattern contains empty call {expr}")
   for (i in 2:length(expr))
     expr[[i]] <- Recall(expr[[i]])
   expr
