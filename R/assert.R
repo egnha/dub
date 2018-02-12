@@ -7,10 +7,14 @@ assert <- function(cond, errmsg) {
 
 interpolate <- function(text, env) {
   matches <- gregexpr("\\{.*?\\}", text)
+  if (empty(matches))
+    return(text)
   nms <- interpolated_names(text, matches, env)
   regmatches(text, matches) <- "%s"
   sprintf(text, nms)
 }
+
+empty <- function(matches) matches[[1]] == -1
 
 interpolated_names <- function(text, matches, env) {
   nms <- regmatches(text, matches)[[1]]
