@@ -1,5 +1,8 @@
 `%??%` <- function(lhs, rhs)
-  if (length(lhs) == 0) rhs else lhs
+  if (is_empty(lhs)) rhs else lhs
+
+is_empty <- function(x)
+  length(x) == 0
 
 is_string <- function(x)
   length(x) == 1 && is.character(x)

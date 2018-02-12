@@ -4,7 +4,8 @@ attempt <- function(expr, errmsg) {
   val
 }
 
-is_not_error <- function(x) !inherits(x, "error")
+is_not_error <- function(x)
+  !inherits(x, "error")
 
 assert <- function(cond, errmsg)
   if (!cond) stop(errmsg, call. = FALSE)

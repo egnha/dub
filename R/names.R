@@ -31,7 +31,7 @@ dots_matched <- function(nms, tree) {
   if (is_name(nms))
     return(nms)
   wh_dots <- which(nms == "...")
-  if (length(wh_dots) == 0) {
+  if (is_empty(wh_dots)) {
     assert(length(nms) == length(tree), "pattern doesn't match value")
     return(Map(dots_matched, nms, tree))
   }
@@ -42,4 +42,5 @@ dots_matched <- function(nms, tree) {
   c(Recall(nms[before], tree[before]), dots, Recall(nms[after], tree[rest]))
 }
 
-is_name <- function(x) is_string(x) && x != "..."
+is_name <- function(x)
+  is_string(x) && x != "..."
