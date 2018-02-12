@@ -23,10 +23,8 @@
   nms <- reify_names(substitute(pattern), tree(val))
   for (path in index_paths(nms)) {
     nm <- nms[[path]]
-    if (assignable(nm)) {
-      v <- attempt(val[[path]], "{nm} doesn't match component of value")
-      assign(nm, v, envir = parent.frame())
-    }
+    if (assignable(nm))
+      assign(nm, val[[path]], envir = parent.frame())
   }
   invisible(value)
 }
