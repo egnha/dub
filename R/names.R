@@ -1,7 +1,7 @@
 reify_names <- function(expr, tree) {
   nms <- as_strings(expr)
   nms <- attempt(eval(nms, cons)[[1]], "invalid pattern")
-  attempt(dots_matched(nms, tree), "pattern doesn't match value")
+  dots_matched(nms, tree)
 }
 
 cons <- bind_to_env(
@@ -35,10 +35,13 @@ dots_matched <- function(nms, tree) {
     assert(length(nms) == length(tree), "pattern doesn't match value")
     return(Map(dots_matched, nms, tree))
   }
-  dots <- rep(".", length(tree) - length(nms) + 1)
+  assert(is_scalar(wh_dots), "multiple '...' at the same level are ambiguous")
+  n_dots <- length(tree) - length(nms) + 1
+  assert(n_dots >= 0, "'...' must match zero or more components of value")
+  dots <- rep(".", n_dots)
   before <-  seq_len(wh_dots - 1)
   after  <- -seq_len(wh_dots)
-  rest   <- -seq_len(wh_dots - 1 + length(dots)) %??% seq_along(tree)
+  rest   <- -seq_len(wh_dots - 1 + n_dots) %??% seq_along(tree)
   c(Recall(nms[before], tree[before]), dots, Recall(nms[after], tree[rest]))
 }
 

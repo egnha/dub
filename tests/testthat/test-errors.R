@@ -30,8 +30,26 @@ test_that("non-matching pattern is caught", {
     (((a))) %<=% list(list(1)),
     (a : b) %<=% list(1),
     (a : b) %<=% list(1, 2, 3),
-    (a : ... : b) %<=% list(1),
     (a : (b)) %<=% list(1, 2),
     (a : (b : c)) %<=% list(1, list(2, 3, 4))
+  )
+  expect_errors_with_message(
+    "'...' must match zero or more components of value",
+    (... : a : b) %<=% list(1),
+    (a : ... : b) %<=% list(1),
+    (a : b : ...) %<=% list(1)
+  )
+})
+
+test_that("ambiguous dots are caught", {
+  expect_errors_with_message(
+    "multiple '...' at the same level are ambiguous",
+    (... : ...) %<=% list(1, 2, 3, 4),
+    (a : b : ... : ...) %<=% list(1, 2, 3, 4),
+    (a : ... : b : ...) %<=% list(1, 2, 3, 4),
+    (a : ... : ... : b) %<=% list(1, 2, 3, 4),
+    (... : a : b : ...) %<=% list(1, 2, 3, 4),
+    (... : a : ... : b) %<=% list(1, 2, 3, 4),
+    (... : ... : a : b) %<=% list(1, 2, 3, 4)
   )
 })
