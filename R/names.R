@@ -31,11 +31,11 @@ dots_matched <- function(nms, tree) {
   if (is_name(nms))
     return(nms)
   wh_dots <- which(nms == "...")
+  assert(length(wh_dots) <= 1, "multiple '...' at the same level are ambiguous")
   if (is_empty(wh_dots)) {
     assert(length(nms) == length(tree), "pattern doesn't match value")
     return(Map(dots_matched, nms, tree))
   }
-  assert(is_scalar(wh_dots), "multiple '...' at the same level are ambiguous")
   n_dots <- length(tree) - length(nms) + 1
   assert(n_dots >= 0, "'...' must match zero or more components of value")
   dots <- rep(".", n_dots)
