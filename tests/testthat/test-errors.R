@@ -35,6 +35,8 @@ test_that("non-matching pattern is caught", {
   )
   expect_errors_with_message(
     "'...' must match zero or more components of value",
+    (a : ...) %<=% list(),
+    (... : a) %<=% list(),
     (... : a : b) %<=% list(1),
     (a : ... : b) %<=% list(1),
     (a : b : ...) %<=% list(1)
