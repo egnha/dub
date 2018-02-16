@@ -16,10 +16,10 @@
 #' @return Returns `value` invisibly.
 #'
 #' @section Pattern-matching names: Names are matched to the (nested) components
-#'   of a list using a concise pattern-matching syntax (similar to
-#'   [Haskell](https://en.wikibooks.org/wiki/Haskell/Pattern_matching)’s) that
-#'   mirrors the structure of the list. Apart from names, the syntax consists of
-#'   two classes of symbols:
+#'   of a list using a concise,
+#'   [Haskell-like pattern matching](https://en.wikibooks.org/wiki/Haskell/Pattern_matching)
+#'   syntax that mirrors the structure of the list. Apart from names, the syntax
+#'   consists of two classes of symbols:
 #'
 #'   - **List constructors** — Use a pair of parentheses (`()`) to indicate a
 #'     list, and a colon (`:`), rather than a comma, to indicate successive names.

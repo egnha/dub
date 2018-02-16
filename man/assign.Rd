@@ -32,10 +32,10 @@ return in the form of a list;
 }
 \section{Pattern-matching names}{
  Names are matched to the (nested) components
-of a list using a concise pattern-matching syntax (similar to
-\href{https://en.wikibooks.org/wiki/Haskell/Pattern_matching}{Haskell}’s) that
-mirrors the structure of the list. Apart from names, the syntax consists of
-two classes of symbols:
+of a list using a concise,
+\href{https://en.wikibooks.org/wiki/Haskell/Pattern_matching}{Haskell-like pattern matching}
+syntax that mirrors the structure of the list. Apart from names, the syntax
+consists of two classes of symbols:
 \itemize{
 \item \strong{List constructors} — Use a pair of parentheses (\code{()}) to indicate a
 list, and a colon (\code{:}), rather than a comma, to indicate successive names.
