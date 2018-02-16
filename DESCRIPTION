@@ -1,14 +1,19 @@
 Package: dub
 Type: Package
-Title: Unpacking Assignment for Lists and Vectors via Pattern Matching
-Version: 0.0.0.9000
+Title: Unpacking Assignment for Lists via Pattern Matching
+Version: 0.1.0
 Authors@R: person("Eugene", "Ha", , "eha@posteo.de", c("aut", "cre"))
-Description: Use literal pattern matching to assign the components of a list
-  or vector to names.
+Description: Provides an operator for assigning nested components of a list to
+  names via pattern matching. This is especially convenient for assigning
+  individual names to the multiple values that a function may return in the
+  form of a list, and for extracting deeply nested list components.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+ByteCompile: true
 Suggests: covr, testthat
+URL: https://github.com/egnha/dub
+BugReports: https://github.com/egnha/dub/issues
 Collate: 'util.R' 'assert.R' 'tree.R' 'names.R' 'assign.R'
 RoxygenNote: 6.0.1
 Roxygen: list(markdown = TRUE)
