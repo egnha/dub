@@ -4,9 +4,10 @@ Title: Unpacking Assignment for Lists via Pattern Matching
 Version: 0.1.0
 Authors@R: person("Eugene", "Ha", , "eha@posteo.de", c("aut", "cre"))
 Description: Provides an operator for assigning nested components of a list to
-  names via a concise pattern-matching syntax. This is especially convenient for
-  assigning individual names to the multiple values that a function may return
-  in the form of a list, and for extracting deeply nested list components.
+  names via a concise, Haskell-like pattern matching syntax. This is especially
+  convenient for assigning individual names to the multiple values that a
+  function may return in the form of a list, and for extracting deeply nested
+  list components.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
