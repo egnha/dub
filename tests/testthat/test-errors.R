@@ -18,6 +18,10 @@ test_that("invalid pattern is caught", {
     (a + b) %<=% list(1, 2),
     (a(b)) %<=% list(1, list(2))
   )
+  expect_errors_with_message(
+    "pattern can only have names, not calls \\(missing ':'\\?\\)",
+    (a()) %<=% list(1, list(2))
+  )
 })
 
 test_that("non-matching pattern is caught", {
