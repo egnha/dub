@@ -3,14 +3,15 @@
 \name{\%<=\%}
 \alias{\%<=\%}
 \alias{\%=>\%}
-\title{Assign multiple components of a list to names}
+\title{Assign nested components of a list to names}
 \usage{
 pattern \%<=\% value
 
 value \%=>\% pattern
 }
 \arguments{
-\item{pattern}{Assignment pattern (see below).}
+\item{pattern}{Pattern of names that the components of \code{value} are assigned
+to (see below).}
 
 \item{value}{List or vector.}
 }
@@ -18,18 +19,23 @@ value \%=>\% pattern
 Returns \code{value} invisibly.
 }
 \description{
-The \code{\%<=\%} operator enables you to assign multiple components of a
-list (or vector) to names, via \emph{pattern matching}. This is especially
-convenient when a function returns multiple values as a list and you want to
-assign individual names to them.
+\code{\%<=\%} is an operator that enables you to assign nested components of
+a list (or vector) to names via \emph{pattern matching}. This is especially
+convenient for:
+\itemize{
+\item assigning individual names to the multiple values that a function may
+return as the components of a list
+\item extracting deeply nested list components
 }
-\section{Assignment pattern}{
- An \emph{assignment pattern} is a concise, ad hoc
-syntax for matching names to the (nested) components of a list, by
-mirroring the structure of the list. Use pairs of parentheses (\code{()}) to
-indicate a list and a colon (\code{:}) to indicate successive names. A specific
-component, or range of components, can be skipped with a dot (\code{.}), or dots
-(\code{...}).
+}
+\section{Pattern-matching names}{
+ Names are matched to the (nested) components
+of a list using an ad hoc pattern-matching syntax (coming from
+\href{https://en.wikibooks.org/wiki/Haskell/Pattern_matching}{Haskell}) that
+mirrors the structure of the list. Use pairs of parentheses (\code{()}) to
+indicate a list, and a colon (\code{:}), rather than a comma, to indicate
+successive names. Use a dot (\code{.}) to skip assignment of a specific
+component, or dots (\code{...}) to skip assignment of a range of components.
 }
 
 \examples{
