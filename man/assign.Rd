@@ -35,28 +35,30 @@ component, or range of components, can be skipped with a dot (\code{.}), or dots
 \examples{
 ## assign successive components
 (one : two : three) \%<=\% list(1, 2, 3)
-stopifnot(c(one, two, three) == 1:3)
+stopifnot(identical(list(one, two, three), list(1, 2, 3)))
 
 ## assign nested components
 (p : (q : r : (s : t))) \%<=\% list(1, list(2, 3, list(4, 5)))
-stopifnot(c(p, q, r, s, t) == 1:5)
+(P : (Q : R : S)) \%<=\% list(1, list(2, 3, list(4, 5)))
+stopifnot(identical(list(p, q, r, s, t), list(1, 2, 3, 4, 5)),
+          identical(list(P, Q, R, S), list(1, 2, 3, list(4, 5))))
 
 ## nested parentheses dig into a list
 (w) \%<=\% list(1:3)
-(((z))) \%<=\% list(list(list(3)))
-((x : y)) \%<=\% list(list(1, 2))
-stopifnot(w == 1:3, c(x, y, z) == 1:3)
+(((z))) \%<=\% list(list(list("z")))
+((x : y)) \%<=\% list(list("x", "y"))
+stopifnot(w == 1:3, identical(list(x, y, z), list("x", "y", "z")))
 
-## skip components with a dot (.)
+## skip a component with a dot (.)
 (a : . : b) \%<=\% list("a", "skip this", "b")
 ((c : .) : .) \%<=\% list(list("c", "skip this"), "skip this")
-stopifnot(c(a, b, c) == c("a", "b", "c"))
+stopifnot(identical(list(a, b, c), list("a", "b", "c")))
 
-## skip ranges with dots (...)
+## skip a range of components with dots (...)
 (first : ... : last) \%<=\% letters
 (. : second : ...) \%<=\% letters
 (mpg : cyl : ...) \%<=\% mtcars
-stopifnot(c(first, second, last) == c("a", "b", "z"),
+stopifnot(identical(list(first, second, last), list("a", "b", "z")),
           mpg == mtcars$mpg, cyl == mtcars$cyl)
 
 }
