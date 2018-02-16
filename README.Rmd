@@ -65,7 +65,7 @@ The pattern matching syntax should be economical and avoid conflict with R's est
 
 ### Implementation
 
-dub overloads `` `:` `` as a symbol concatenator, in a strictly localized context. There is no semantic conflict with the usual `` `:` ``, which is an operator of an altogether different type (namely, a range operator of integers).
+dub redefines `` `:` `` as a symbol concatenator, in a strictly localized context. There is no semantic conflict with the usual `` `:` ``, which is an operator of an altogether different type (namely, a range operator of integers).
 
 The brevity of the code reflects the simplicity of unpacking assignment: the leaves of the left-hand side of `%<=%` are matched, via `<-`, with the leaves on the right-hand side. The only subtlety is to handle greedy matching and make `` `:` `` right-associative.
 

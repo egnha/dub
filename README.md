@@ -75,7 +75,7 @@ There should be no external package dependencies.
 
 ### Implementation
 
-dub overloads `` `:` `` as a symbol concatenator, in a strictly
+dub redefines `` `:` `` as a symbol concatenator, in a strictly
 localized context. There is no semantic conflict with the usual
 `` `:` ``, which is an operator of an altogether different type (namely,
 a range operator of integers).
