@@ -19,10 +19,9 @@ to (see below).}
 Returns \code{value} invisibly.
 }
 \description{
-\code{\%<=\%} is an operator that enables you to assign multiple, possibly
-nested components of a list (or vector) to names via pattern matching
-(“unpacking assignment”). Think of ‘\code{<=}’ as a pictograph representing
-multiple ‘\code{<-}’s.
+\code{\%<=\%} is an operator that enables you to assign multiple (nested)
+components of a list (or vector) to names via pattern matching (“unpacking
+assignment”). Think of ‘\code{<=}’ as a pictograph representing multiple ‘\code{<-}’s.
 \cr\cr
 \code{\%<=\%} is especially convenient for:
 \itemize{
@@ -33,13 +32,18 @@ return in the form of a list;
 }
 \section{Pattern-matching names}{
  Names are matched to the (nested) components
-of a list using an ad hoc pattern-matching syntax (coming from
-\href{https://en.wikibooks.org/wiki/Haskell/Pattern_matching}{Haskell}) that
-mirrors the structure of the list. Use pairs of parentheses (\code{()}) to
-indicate a list, and a colon (\code{:}), rather than a comma, to indicate
-successive names. Use a dot (\code{.}) to skip assignment of a specific
-component, or dots (\code{...}) to skip assignment of a range of components. The
-examples illustrate some common use cases.
+of a list using a concise pattern-matching syntax (similar to
+\href{https://en.wikibooks.org/wiki/Haskell/Pattern_matching}{Haskell}’s) that
+mirrors the structure of the list. Apart from names, the syntax consists of
+two classes of symbols:
+\itemize{
+\item \strong{List constructors} — Use a pair of parentheses (\code{()}) to indicate a
+list, and a colon (\code{:}), rather than a comma, to indicate successive names.
+\item \strong{Wildcards} — Use a dot (\code{.}) to skip assignment of a specific
+component, or dots (\code{...}) to skip assignment of a range of components.
+}
+
+See the examples for an illustration of common use cases.
 }
 
 \section{Prior art}{
@@ -56,28 +60,28 @@ been a folklore method. An early implementation is due to
 }
 
 \examples{
-## assign successive components
+# assign successive components
 (one : two : three) \%<=\% list(1, 2, 3)
 stopifnot(identical(list(one, two, three), list(1, 2, 3)))
 
-## assign nested components
+# assign nested components
 (p : (q : r : (s : t))) \%<=\% list(1, list(2, 3, list(4, 5)))
 (P : (Q : R : S)) \%<=\% list(1, list(2, 3, list(4, 5)))
 stopifnot(identical(list(p, q, r, s, t), list(1, 2, 3, 4, 5)),
           identical(list(P, Q, R, S), list(1, 2, 3, list(4, 5))))
 
-## nested parentheses dig into a list
+# nested parentheses unpack nested components
 (w) \%<=\% list(1:3)
 (((z))) \%<=\% list(list(list("z")))
 ((x : y)) \%<=\% list(list("x", "y"))
 stopifnot(w == 1:3, identical(list(x, y, z), list("x", "y", "z")))
 
-## skip a component with a dot (.)
+# skip a component with a dot (.)
 (a : . : b) \%<=\% list("a", "skip this", "b")
 ((c : .) : .) \%<=\% list(list("c", "skip this"), "skip this")
 stopifnot(identical(list(a, b, c), list("a", "b", "c")))
 
-## skip a range of components with dots (...)
+# skip a range of components with dots (...)
 (first : ... : last) \%<=\% letters
 (. : second : ...) \%<=\% letters
 (mpg : cyl : ...) \%<=\% mtcars
