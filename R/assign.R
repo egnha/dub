@@ -1,11 +1,14 @@
 #' Assign nested components of a list to names
 #'
-#' \code{\%<=\%} is an operator that enables you to assign nested components of
-#' a list (or vector) to names via _pattern matching_. This is especially
-#' convenient for:
+#' \code{\%<=\%} is an operator that enables you to assign multiple, possibly
+#' nested components of a list (or vector) to names via pattern matching
+#' (“unpacking assignment”). Think of ‘`<=`’ as a pictograph representing
+#' multiple ‘`<-`’s.
+#' \cr\cr
+#' \code{\%<=\%} is especially convenient for:
 #' - assigning individual names to the multiple values that a function may
-#'   return as the components of a list
-#' - extracting deeply nested list components
+#'   return in the form of a list;
+#' - extracting deeply nested list components.
 #'
 #' @param pattern Pattern of names that the components of `value` are assigned
 #'   to (see below).
@@ -19,7 +22,19 @@
 #'   mirrors the structure of the list. Use pairs of parentheses (`()`) to
 #'   indicate a list, and a colon (`:`), rather than a comma, to indicate
 #'   successive names. Use a dot (`.`) to skip assignment of a specific
-#'   component, or dots (`...`) to skip assignment of a range of components.
+#'   component, or dots (`...`) to skip assignment of a range of components. The
+#'   examples illustrate some common use cases.
+#'
+#' @section Prior art: Unpacking/multiple assignment appears in other
+#'   languages, e.g.,
+#'   [Python](https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences)
+#'   and
+#'   [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment).
+#'   While R has no such feature, using a custom operator to do this has long
+#'   been a folklore method. An early implementation is due to
+#'   [Gabor Grothendieck](https://stat.ethz.ch/pipermail/r-help/2004-June/053343.html)
+#'   (2004), cf. `list` in the
+#'   [gsubfn](https://cran.r-project.org/package=gsubfn) package.
 #'
 #' @examples
 #' ## assign successive components

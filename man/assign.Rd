@@ -19,13 +19,16 @@ to (see below).}
 Returns \code{value} invisibly.
 }
 \description{
-\code{\%<=\%} is an operator that enables you to assign nested components of
-a list (or vector) to names via \emph{pattern matching}. This is especially
-convenient for:
+\code{\%<=\%} is an operator that enables you to assign multiple, possibly
+nested components of a list (or vector) to names via pattern matching
+(“unpacking assignment”). Think of ‘\code{<=}’ as a pictograph representing
+multiple ‘\code{<-}’s.
+\cr\cr
+\code{\%<=\%} is especially convenient for:
 \itemize{
 \item assigning individual names to the multiple values that a function may
-return as the components of a list
-\item extracting deeply nested list components
+return in the form of a list;
+\item extracting deeply nested list components.
 }
 }
 \section{Pattern-matching names}{
@@ -35,7 +38,21 @@ of a list using an ad hoc pattern-matching syntax (coming from
 mirrors the structure of the list. Use pairs of parentheses (\code{()}) to
 indicate a list, and a colon (\code{:}), rather than a comma, to indicate
 successive names. Use a dot (\code{.}) to skip assignment of a specific
-component, or dots (\code{...}) to skip assignment of a range of components.
+component, or dots (\code{...}) to skip assignment of a range of components. The
+examples illustrate some common use cases.
+}
+
+\section{Prior art}{
+ Unpacking/multiple assignment appears in other
+languages, e.g.,
+\href{https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences}{Python}
+and
+\href{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment}{Javascript}.
+While R has no such feature, using a custom operator to do this has long
+been a folklore method. An early implementation is due to
+\href{https://stat.ethz.ch/pipermail/r-help/2004-June/053343.html}{Gabor Grothendieck}
+(2004), cf. \code{list} in the
+\href{https://cran.r-project.org/package=gsubfn}{gsubfn} package.
 }
 
 \examples{
