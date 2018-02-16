@@ -26,7 +26,7 @@ test_that("invalid pattern is caught", {
 
 test_that("non-matching pattern is caught", {
   expect_errors_with_message(
-    "pattern without '...' must match all components of value",
+    "\\(sub\\)pattern without '...' must match all components at its level",
     (a) %<=% list(),
     (a) %<=% list(1, 2),
     ((a)) %<=% list(1),
@@ -38,7 +38,7 @@ test_that("non-matching pattern is caught", {
     (a : (b : c)) %<=% list(1, list(2, 3, 4))
   )
   expect_errors_with_message(
-    "pattern with '...' can't have more components than value",
+    "\\(sub\\)pattern with '...' can't have more names than components at its level",
     (a : ...) %<=% list(),
     (... : a) %<=% list(),
     (... : a : b) %<=% list(1),

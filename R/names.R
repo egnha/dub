@@ -36,12 +36,12 @@ dots_matched <- function(nms, tree) {
          because = "multiple '...' at the same level are ambiguous")
   if (is_empty(wh_dots)) {
     assert(length(nms) == length(tree),
-           because = "pattern without '...' must match all components of value")
+           because = "(sub)pattern without '...' must match all components at its level")
     return(Map(dots_matched, nms, tree))
   }
   n_dots <- length(tree) - length(nms) + 1
   assert(n_dots >= 0,
-         because = "pattern with '...' can't have more components than value")
+         because = "(sub)pattern with '...' can't have more names than components at its level")
   dots <- rep(".", n_dots)
   before <-  seq_len(wh_dots - 1)
   after  <- -seq_len(wh_dots)
