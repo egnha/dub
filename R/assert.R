@@ -1,11 +1,10 @@
-attempt <- function(expr, errmsg) {
+do <- function(expr, unless) {
   val <- tryCatch(expr, error = identity)
-  assert(is_not_error(val), errmsg)
+  assert(ok(val), unless)
   val
 }
 
-is_not_error <- function(x)
-  !inherits(x, "error")
+ok <- function(x) !inherits(x, "error")
 
-assert <- function(cond, errmsg)
-  if (!cond) stop(errmsg, call. = FALSE)
+assert <- function(cond, because)
+  if (!cond) stop(because, call. = FALSE)

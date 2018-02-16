@@ -1,6 +1,6 @@
 reify_names <- function(expr, tree) {
   nms <- as_strings(expr)
-  nms <- attempt(eval(nms, cons)[[1]], "invalid pattern")
+  nms <- do(eval(nms, cons)[[1]], unless = "pattern is invalid")
   dots_matched(nms, tree)
 }
 
@@ -14,7 +14,7 @@ as_strings <- function(expr) {
     return(as.character(expr))
   if (encloses_bare_name(expr))
     return(as_head(expr))
-  assert(length(expr) > 1, "invalid pattern")
+  assert(length(expr) > 1, because = "pattern is invalid")
   for (i in 2:length(expr))
     expr[[i]] <- Recall(expr[[i]])
   expr
@@ -31,13 +31,16 @@ dots_matched <- function(nms, tree) {
   if (is_name(nms))
     return(nms)
   wh_dots <- which(nms == "...")
-  assert(length(wh_dots) <= 1, "multiple '...' at the same level are ambiguous")
+  assert(length(wh_dots) <= 1,
+         because = "multiple '...' at the same level are ambiguous")
   if (is_empty(wh_dots)) {
-    assert(length(nms) == length(tree), "pattern doesn't match value")
+    assert(length(nms) == length(tree),
+           because = "pattern without '...' must match all components of value")
     return(Map(dots_matched, nms, tree))
   }
   n_dots <- length(tree) - length(nms) + 1
-  assert(n_dots >= 0, "'...' must match zero or more components of value")
+  assert(n_dots >= 0,
+         because = "pattern with '...' can't have more components than value")
   dots <- rep(".", n_dots)
   before <-  seq_len(wh_dots - 1)
   after  <- -seq_len(wh_dots)
