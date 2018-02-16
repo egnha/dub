@@ -3,14 +3,14 @@
 \name{\%<=\%}
 \alias{\%<=\%}
 \alias{\%=>\%}
-\title{Assign the components of a list or vector to names}
+\title{Assign multiple components of a list to names}
 \usage{
 pattern \%<=\% value
 
 value \%=>\% pattern
 }
 \arguments{
-\item{pattern}{Assignment pattern (see examples).}
+\item{pattern}{Assignment pattern (see below).}
 
 \item{value}{List or vector.}
 }
@@ -18,16 +18,45 @@ value \%=>\% pattern
 Returns \code{value} invisibly.
 }
 \description{
-Assign the components of a list or vector to names
+The \code{\%<=\%} operator enables you to assign multiple components of a
+list (or vector) to names, via \emph{pattern matching}. This is especially
+convenient when a function returns multiple values as a list and you want to
+assign individual names to them.
 }
+\section{Assignment pattern}{
+ An \emph{assignment pattern} is a concise, ad hoc
+syntax for matching names to the (nested) components of a list, by
+mirroring the structure of the list. Use pairs of parentheses (\code{()}) to
+indicate a list and a colon (\code{:}) to indicate successive names. A specific
+component, or range of components, can be skipped with a dot (\code{.}), or dots
+(\code{...}).
+}
+
 \examples{
-(one : two) \%<=\% 1:2
-(one : two) \%<=\% list(1, 2)
-(p : (q : r : s)) \%<=\% list(1, list(2, 3, 4))
-(a : (. : (c : d) : e)) \%<=\% list(1, list(2, list(3, 4), 5))
-(. : (. : b : .)) \%<=\% list(1, list(2, list(3, 4), 5))
-(z) \%<=\% list(list(1))
-((z)) \%<=\% list(list(1))
+## assign successive components
+(one : two : three) \%<=\% list(1, 2, 3)
+stopifnot(c(one, two, three) == 1:3)
+
+## assign nested components
+(p : (q : r : (s : t))) \%<=\% list(1, list(2, 3, list(4, 5)))
+stopifnot(c(p, q, r, s, t) == 1:5)
+
+## nested parentheses dig into a list
+(w) \%<=\% list(1:3)
+(((z))) \%<=\% list(list(list(3)))
 ((x : y)) \%<=\% list(list(1, 2))
+stopifnot(w == 1:3, c(x, y, z) == 1:3)
+
+## skip components with a dot (.)
+(a : . : b) \%<=\% list("a", "skip this", "b")
+((c : .) : .) \%<=\% list(list("c", "skip this"), "skip this")
+stopifnot(c(a, b, c) == c("a", "b", "c"))
+
+## skip ranges with dots (...)
+(first : ... : last) \%<=\% letters
+(. : second : ...) \%<=\% letters
+(mpg : cyl : ...) \%<=\% mtcars
+stopifnot(c(first, second, last) == c("a", "b", "z"),
+          mpg == mtcars$mpg, cyl == mtcars$cyl)
 
 }
