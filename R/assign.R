@@ -51,7 +51,7 @@
 #' stopifnot(p == 1, q == 2, r == 3, s == 4, t == 5,
 #'           P == 1, Q == 2, R == 3, identical(S, list(4, 5)))
 #'
-#' # nested parentheses unpack nested components
+#' # unpack nested components with nested parentheses
 #' (w) %<=% list(1:3)
 #' (((z))) %<=% list(list(list("z")))
 #' ((x : y)) %<=% list(list("x", "y"))
