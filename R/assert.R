@@ -1,10 +1,5 @@
-do <- function(expr, unless) {
-  val <- tryCatch(expr, error = identity)
-  assert(ok(val), unless)
-  val
-}
-
-ok <- function(x) !inherits(x, "error")
+do <- function(expr, unless)
+  tryCatch(expr, error = function(.) stop(unless, call. = FALSE))
 
 assert <- function(cond, because)
   if (!cond) stop(because, call. = FALSE)
