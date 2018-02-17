@@ -12,7 +12,7 @@ status](https://codecov.io/gh/egnha/dub/branch/master/graph/badge.svg)](https://
 *dub* is a small, single-purpose R package for *unpacking assignment*:
 it provides an operator `%<=%` that enables you to assign (nested)
 components of a list (or vector) to names via pattern matching. Think of
-`<=` as a pictograph representing multiple `<-`’s.
+the “dubble arrow” `<=` as a pictograph representing multiple `<-`’s.
 
 The pattern matching syntax, which comes from
 [Haskell](https://en.wikibooks.org/wiki/Haskell/Pattern_matching), is
