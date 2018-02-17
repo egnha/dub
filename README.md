@@ -5,6 +5,7 @@
 status](https://travis-ci.org/egnha/dub.svg?branch=master)](https://travis-ci.org/egnha/dub)
 [![Coverage
 status](https://codecov.io/gh/egnha/dub/branch/master/graph/badge.svg)](https://codecov.io/github/egnha/dub?branch=master)
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/dub)](https://cran.r-project.org/package=dub)
 
 # dub
 
@@ -55,7 +56,13 @@ head(species)
 
 ## Installation
 
-Install the development version from GitHub:
+Install from CRAN:
+
+``` r
+install.packages("dub")
+```
+
+Alternatively, install the development version from GitHub:
 
 ``` r
 # install.packages("devtools")
