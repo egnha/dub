@@ -47,6 +47,8 @@ head(width)
 head(species)
 ```
 
+More details and examples are in the package documentation, `help(package = dub)`.
+
 ## Installation
 
 Install from CRAN:

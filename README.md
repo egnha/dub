@@ -54,6 +54,9 @@ head(species)
 #> Levels: setosa versicolor virginica
 ```
 
+More details and examples are in the package documentation,
+`help(package = dub)`.
+
 ## Installation
 
 Install from CRAN:
