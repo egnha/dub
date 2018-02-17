@@ -85,9 +85,9 @@ Grothendieck](https://stat.ethz.ch/pipermail/r-help/2004-June/053343.html)
 (2004), cf. `list` in the
 [gsubfn](https://cran.r-project.org/package=gsubfn) package.
 
-If you need a more full-featured option for unpacking assignment, I
-recommend the [zeallot](https://github.com/nteetor/zeallot) package by
-[Nate Teetor](https://github.com/nteetor).
+If you need more options for unpacking assignment, I recommend the
+[zeallot](https://github.com/nteetor/zeallot) package by [Nate
+Teetor](https://github.com/nteetor).
 
 ## License
 
