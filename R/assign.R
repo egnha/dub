@@ -43,30 +43,30 @@
 #' @examples
 #' # assign successive components
 #' (one : two : three) %<=% list(1, 2, 3)
-#' stopifnot(identical(list(one, two, three), list(1, 2, 3)))
+#' stopifnot(one == 1, two == 2, three == 3)
 #'
 #' # assign nested components
 #' (p : (q : r : (s : t))) %<=% list(1, list(2, 3, list(4, 5)))
 #' (P : (Q : R : S)) %<=% list(1, list(2, 3, list(4, 5)))
-#' stopifnot(identical(list(p, q, r, s, t), list(1, 2, 3, 4, 5)),
-#'           identical(list(P, Q, R, S), list(1, 2, 3, list(4, 5))))
+#' stopifnot(p == 1, q == 2, r == 3, s == 4, t == 5,
+#'           P == 1, Q == 2, R == 3, identical(S, list(4, 5)))
 #'
 #' # nested parentheses unpack nested components
 #' (w) %<=% list(1:3)
 #' (((z))) %<=% list(list(list("z")))
 #' ((x : y)) %<=% list(list("x", "y"))
-#' stopifnot(w == 1:3, identical(list(x, y, z), list("x", "y", "z")))
+#' stopifnot(w == 1:3, x == "x", y == "y", z == "z")
 #'
 #' # skip a component with a dot (.)
 #' (a : . : b) %<=% list("a", "skip this", "b")
 #' ((c : .) : .) %<=% list(list("c", "skip this"), "skip this")
-#' stopifnot(identical(list(a, b, c), list("a", "b", "c")))
+#' stopifnot(a == "a", b == "b", c == "c")
 #'
 #' # skip a range of components with dots (...)
 #' (first : ... : last) %<=% letters
 #' (. : second : ...) %<=% letters
 #' (mpg : cyl : ...) %<=% mtcars
-#' stopifnot(identical(list(first, second, last), list("a", "b", "z")),
+#' stopifnot(first == "a", second == "b", last == "z",
 #'           mpg == mtcars$mpg, cyl == mtcars$cyl)
 #'
 #' @export
