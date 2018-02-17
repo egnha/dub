@@ -1,7 +1,7 @@
 Package: dub
 Type: Package
 Title: Unpacking Assignment for Lists via Pattern Matching
-Version: 0.1.0
+Version: 0.1.0.9000
 Authors@R: person("Eugene", "Ha", , "eha@posteo.de", c("aut", "cre"))
 Description: Provides an operator for assigning nested components of a list to
   names via a concise, Haskell-like pattern matching syntax. This is especially
