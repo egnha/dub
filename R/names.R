@@ -1,6 +1,6 @@
 reify_names <- function(expr, tree) {
   nms <- as_strings(expr)
-  nms <- do(eval(nms, cons)[[1]], unless = "pattern is invalid")
+  nms <- eval(nms, cons)[[1]] %unless% "pattern is invalid"
   dots_matched(nms, tree)
 }
 
