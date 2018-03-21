@@ -2,10 +2,10 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 [![Travis build
-status](https://img.shields.io/travis/egnha/dub/master.svg?style=flat-square)](https://travis-ci.org/egnha/dub)
+status](https://travis-ci.org/egnha/dub.svg?branch=master)](https://travis-ci.org/egnha/dub)
 [![Coverage
-status](https://img.shields.io/codecov/c/github/egnha/dub/master.svg?style=flat-square)](https://codecov.io/github/egnha/dub?branch=master)
-[![CRAN\_Status\_Badge](https://img.shields.io/cran/v/dub.svg?style=flat-square)](https://cran.r-project.org/package=dub)
+status](https://codecov.io/gh/egnha/dub/branch/master/graph/badge.svg)](https://codecov.io/github/egnha/dub?branch=master)
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/dub)](https://cran.r-project.org/package=dub)
 
 # dub
 
