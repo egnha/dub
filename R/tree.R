@@ -1,5 +1,6 @@
-tree <- function(x)
+tree <- function(x) {
   rapply(x, function(.) NULL, how = "replace")
+}
 
 index_paths <- function(x) {
   if (!is.list(x))

@@ -1,5 +1,7 @@
-`%because%` <- function(cond, reason)
+`%because%` <- function(cond, reason) {
   if (!cond) stop(reason, call. = FALSE)
+}
 
-`%unless%` <- function(expr, exception)
+`%unless%` <- function(expr, exception) {
   tryCatch(expr, error = function(.) stop(exception, call. = FALSE))
+}

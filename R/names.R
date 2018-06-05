@@ -21,12 +21,14 @@ as_strings <- function(expr) {
   expr
 }
 
-encloses_bare_name <- function(expr)
+encloses_bare_name <- function(expr) {
   identical(expr[[1]], sym_paren) && is.symbol(expr[[2]])
+}
 sym_paren <- as.name("(")
 
-as_head <- function(expr)
+as_head <- function(expr) {
   bquote((.(as.character(expr[[2]])) : NULL))
+}
 
 dots_matched <- function(nms, tree) {
   if (is_name(nms))
@@ -48,5 +50,6 @@ dots_matched <- function(nms, tree) {
   c(Recall(nms[before], tree[before]), dots, Recall(nms[after], tree[rest]))
 }
 
-is_name <- function(x)
+is_name <- function(x) {
   is_string(x) && x != "..."
+}
