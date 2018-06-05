@@ -4,7 +4,7 @@ reify_names <- function(expr, tree) {
   dots_matched(nms, tree)
 }
 
-cons <- bind_to_env(
+cons <- emptyenv() %encloses% list(
   "(" = list,
   ":" = function(...) as.list(c(...))
 )

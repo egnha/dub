@@ -15,5 +15,6 @@ opposite <- function(f) {
   f
 }
 
-bind_to_env <- function(...)
-  list2env(list(...), parent = emptyenv())
+`%encloses%` <- function(parent, bindings) {
+  list2env(bindings, parent = parent)
+}

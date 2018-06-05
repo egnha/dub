@@ -10,4 +10,4 @@ r:
 - devel
 
 after_success:
-  - Rscript -e 'covr::codecov(function_exclusions = c("opposite", "bind_to_env"))'
+  - Rscript -e 'covr::codecov(function_exclusions = c("opposite", "%encloses%"))'
