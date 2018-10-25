@@ -16,5 +16,5 @@ Suggests: covr, testthat
 URL: https://github.com/egnha/dub
 BugReports: https://github.com/egnha/dub/issues
 Collate: 'util.R' 'assert.R' 'tree.R' 'names.R' 'assign.R'
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.0
 Roxygen: list(markdown = TRUE)
