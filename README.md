@@ -10,9 +10,9 @@ status](https://codecov.io/gh/egnha/dub/branch/master/graph/badge.svg)](https://
 # dub
 
 *dub* is a small, single-purpose R package for *unpacking assignment*:
-it provides an operator `%<=%` that enables you to assign (nested)
+it provides an operator `%<<-%` that enables you to assign (nested)
 components of a list (or vector) to names via pattern matching. Think of
-the “dubble arrow” `<=` as a pictograph representing multiple `<-`’s.
+the “dubble arrow” `<<-` as a pictograph representing multiple `<-`’s.
 
 The pattern matching syntax, which comes from
 [Haskell](https://en.wikibooks.org/wiki/Haskell/Pattern_matching), is
@@ -21,7 +21,7 @@ concise and flexible. It mirrors the semantics of `list()`.
 ``` r
 library(dub)
 
-(one : two : three) %<=% 1:3
+(one : two : three) %<<-% 1:3
 one
 #> [1] 1
 two
@@ -29,15 +29,15 @@ two
 three
 #> [1] 3
 
-(x) %<=% list(list("x"))
-((y)) %<=% list(list("y"))
+(x) %<<-% list(list("x"))
+((y)) %<<-% list(list("y"))
 x
 #> [[1]]
 #> [1] "x"
 y
 #> [1] "y"
 
-(u : (v : w)) %<=% list(1, list(2, 3:4))
+(u : (v : w)) %<<-% list(1, list(2, 3:4))
 u
 #> [1] 1
 v
@@ -46,7 +46,7 @@ w
 #> [1] 3 4
 
 # Use . to drop specific components, ... to drop greedily (the _ in Haskell)
-(. : width : ... : species) %<=% iris
+(. : width : ... : species) %<<-% iris
 head(width)
 #> [1] 3.5 3.0 3.2 3.1 3.6 3.9
 head(species)

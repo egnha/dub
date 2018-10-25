@@ -2,6 +2,10 @@
 
 ## 0.1.0.9000
 
+### Breaking change
+
+* `%<=%`, `%=>%` have been renamed `%<<-%`, `%->>%`, because `<=` renders as a less-than-or-equal symbol in fonts with ligatures (such as Fira Code).
+
 ## 0.1.0
 
 Initial release

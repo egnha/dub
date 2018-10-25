@@ -1,10 +1,11 @@
 #' Assign nested components of a list to names
 #'
-#' \code{\%<=\%} is an operator that enables you to assign multiple (nested)
+#' @description
+#' `%<<-%` is an operator that enables you to assign multiple (nested)
 #' components of a list (or vector) to names via pattern matching (“unpacking
-#' assignment”). Think of ‘`<=`’ as a pictograph representing multiple ‘`<-`’s.
-#' \cr\cr
-#' \code{\%<=\%} is especially convenient for:
+#' assignment”). Think of ‘`<<-`’ as a pictograph representing multiple ‘`<-`’s.
+#'
+#' `%<<-%` is especially convenient for:
 #' - assigning individual names to the multiple values that a function may
 #'   return in the form of a list;
 #' - extracting deeply nested list components.
@@ -42,37 +43,37 @@
 #'
 #' @examples
 #' # assign successive components
-#' (one : two : three) %<=% list(1, 2, 3)
+#' (one : two : three) %<<-% list(1, 2, 3)
 #' stopifnot(one == 1, two == 2, three == 3)
 #'
 #' # assign nested components
-#' (p : (q : r : (s : t))) %<=% list(1, list(2, 3, list(4, 5)))
-#' (P : (Q : R : S)) %<=% list(1, list(2, 3, list(4, 5)))
+#' (p : (q : r : (s : t))) %<<-% list(1, list(2, 3, list(4, 5)))
+#' (P : (Q : R : S)) %<<-% list(1, list(2, 3, list(4, 5)))
 #' stopifnot(p == 1, q == 2, r == 3, s == 4, t == 5,
 #'           P == 1, Q == 2, R == 3, identical(S, list(4, 5)))
 #'
 #' # unpack nested components with nested parentheses
-#' (w) %<=% list(1:3)
-#' (((z))) %<=% list(list(list("z")))
-#' ((x : y)) %<=% list(list("x", "y"))
+#' (w) %<<-% list(1:3)
+#' (((z))) %<<-% list(list(list("z")))
+#' ((x : y)) %<<-% list(list("x", "y"))
 #' stopifnot(w == 1:3, x == "x", y == "y", z == "z")
 #'
 #' # skip a component with a dot (.)
-#' (a : . : b) %<=% list("a", "skip this", "b")
-#' ((c : .) : .) %<=% list(list("c", "skip this"), "skip this")
+#' (a : . : b) %<<-% list("a", "skip this", "b")
+#' ((c : .) : .) %<<-% list(list("c", "skip this"), "skip this")
 #' stopifnot(a == "a", b == "b", c == "c")
 #'
 #' # skip a range of components with dots (...)
-#' (first : ... : last) %<=% letters
-#' (. : second : ...) %<=% letters
-#' (mpg : cyl : ...) %<=% mtcars
+#' (first : ... : last) %<<-% letters
+#' (. : second : ...) %<<-% letters
+#' (mpg : cyl : ...) %<<-% mtcars
 #' stopifnot(first == "a", second == "b", last == "z",
 #'           mpg == mtcars$mpg, cyl == mtcars$cyl)
 #'
 #' @export
 #' @rdname assign
-#' @aliases %<=%
-`%<=%` <- function(pattern, value) {
+#' @aliases %<<-%
+`%<<-%` <- function(pattern, value) {
   val <- as.list(value)
   nms <- reify_names(substitute(pattern), tree(val))
   for (path in index_paths(nms)) {
@@ -87,4 +88,4 @@ assignable <- function(nm) nm != "."
 
 #' @export
 #' @rdname assign
-`%=>%` <- opposite(`%<=%`)
+`%->>%` <- opposite(`%<<-%`)
