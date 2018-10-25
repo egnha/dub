@@ -48,10 +48,10 @@ See the examples for an illustration of common use cases.
 
 \section{Prior art}{
  Unpacking/multiple assignment appears in other
-languages, e.g.,
-\href{https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences}{Python}
-and
-\href{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment}{Javascript}.
+languages (e.g.,
+\href{https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences}{Python},
+\href{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment}{JavaScript},
+\href{https://clojure.org/guides/destructuring}{Clojure}).
 While R has no such feature, using a custom operator to do this has long
 been a folklore method. An early implementation is due to
 \href{https://stat.ethz.ch/pipermail/r-help/2004-June/053343.html}{Gabor Grothendieck}

@@ -74,13 +74,13 @@ devtools::install_github("egnha/dub")
 
 ## Prior art
 
-Unpacking/multiple assignment appears in other languages, e.g.,
-[Python](https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences)
-and
-[Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment).
-While R has no such feature, using a custom operator to do this has long
-been a folklore method. To my knowledge, the earliest implementation is
-by [Gabor
+Unpacking/multiple assignment appears in other languages (e.g.,
+[Python](https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences),
+[JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment),
+[Clojure](https://clojure.org/guides/destructuring)). While R has no
+such feature, using a custom operator to do this has long been a
+folklore method. To my knowledge, the earliest implementation is by
+[Gabor
 Grothendieck](https://stat.ethz.ch/pipermail/r-help/2004-June/053343.html)
 (2004), cf. `list` in the
 [gsubfn](https://cran.r-project.org/package=gsubfn) package.
