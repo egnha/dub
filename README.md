@@ -11,12 +11,9 @@ status](https://codecov.io/gh/egnha/dub/branch/master/graph/badge.svg)](https://
 
 *dub* is a small, single-purpose R package for *unpacking assignment*:
 it provides an operator `%<<-%` that enables you to assign (nested)
-components of a list (or vector) to names via pattern matching. Think of
-the “dubble arrow” `<<-` as a pictograph representing multiple `<-`’s.
-
-The pattern matching syntax, which comes from
-[Haskell](https://en.wikibooks.org/wiki/Haskell/Pattern_matching), is
-concise and flexible. It mirrors the semantics of `list()`.
+components of a list (or vector) to names via pattern matching. The
+pattern matching syntax mirrors the semantics of `list()`. Think of the
+“dub(ble) arrow” `<<-` as a pictograph representing multiple `<-`’s.
 
 ``` r
 library(dub)
@@ -54,8 +51,8 @@ head(species)
 #> Levels: setosa versicolor virginica
 ```
 
-More details and examples are in the package documentation,
-`help(package = dub)`.
+More details and examples are in the package documentation
+(``?`%<<-%` ``).
 
 ## Installation
 
