@@ -19,9 +19,9 @@ to (see below).}
 Returns \code{value} invisibly.
 }
 \description{
-\code{\%<<-\%} is an operator that enables you to assign multiple (nested)
-components of a list (or vector) to names via pattern matching (“unpacking
-assignment”). Think of ‘\code{<<-}’ as a pictograph representing multiple ‘\code{<-}’s.
+The \code{\%<<-\%} operator assigns multiple (nested) components of a list or vector
+to names via pattern matching (“unpacking assignment”). Think of the
+“dub(ble) arrow” \code{<<-} as a pictograph representing multiple \code{<-}'s.
 
 \code{\%<<-\%} is especially convenient for:
 \itemize{
@@ -32,13 +32,12 @@ return in the form of a list;
 }
 \section{Pattern-matching names}{
  Names are matched to the (nested) components
-of a list using a concise,
-\href{https://en.wikibooks.org/wiki/Haskell/Pattern_matching}{Haskell-like pattern matching}
-syntax that mirrors the structure of the list. Apart from names, the syntax
-consists of two classes of symbols:
+of a list using a concise pattern matching syntax that mirrors the
+structure of the list. Apart from names, the syntax consists of two classes
+of symbols:
 \itemize{
-\item \strong{List constructors} — Use a pair of parentheses (\code{()}) to indicate a
-list, and a colon (\code{:}), rather than a comma, to indicate successive names.
+\item \strong{List constructors} — Use a pair of parentheses to indicate a list, and
+a colon, rather than a comma, to indicate successive names.
 \item \strong{Wildcards} — Use a dot (\code{.}) to skip assignment of a specific
 component, or dots (\code{...}) to skip assignment of a range of components.
 }
@@ -60,32 +59,34 @@ been a folklore method. An early implementation is due to
 }
 
 \examples{
-# assign successive components
+# Assign successive components
 (one : two : three) \%<<-\% list(1, 2, 3)
 stopifnot(one == 1, two == 2, three == 3)
 
-# assign nested components
+# Assign nested components
 (p : (q : r : (s : t))) \%<<-\% list(1, list(2, 3, list(4, 5)))
 (P : (Q : R : S)) \%<<-\% list(1, list(2, 3, list(4, 5)))
 stopifnot(p == 1, q == 2, r == 3, s == 4, t == 5,
           P == 1, Q == 2, R == 3, identical(S, list(4, 5)))
 
-# unpack nested components with nested parentheses
+# Unpack nested components with nested parentheses
 (w) \%<<-\% list(1:3)
 (((z))) \%<<-\% list(list(list("z")))
 ((x : y)) \%<<-\% list(list("x", "y"))
 stopifnot(w == 1:3, x == "x", y == "y", z == "z")
 
-# skip a component with a dot (.)
+# Skip a component with a dot (.)
 (a : . : b) \%<<-\% list("a", "skip this", "b")
 ((c : .) : .) \%<<-\% list(list("c", "skip this"), "skip this")
 stopifnot(a == "a", b == "b", c == "c")
 
-# skip a range of components with dots (...)
+# Skip a range of components with dots (...)
 (first : ... : last) \%<<-\% letters
 (. : second : ...) \%<<-\% letters
 (mpg : cyl : ...) \%<<-\% mtcars
-stopifnot(first == "a", second == "b", last == "z",
-          mpg == mtcars$mpg, cyl == mtcars$cyl)
+stopifnot(
+  first == "a", second == "b", last == "z",
+  mpg == mtcars$mpg, cyl == mtcars$cyl
+)
 
 }
