@@ -1,5 +1,10 @@
 # dub
 
+## 0.2.0.9000
+
+* An error is now raised when the left-hand side of an unpacking assignment is
+  not enclosed in parentheses (#6).
+
 ## 0.2.0
 
 ### Breaking change

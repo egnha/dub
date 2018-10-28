@@ -12,8 +12,6 @@ expect_errors_with_message <- function(regexp, ...) {
 test_that("invalid pattern is caught", {
   expect_errors_with_message(
     "pattern is invalid",
-    {a} %<<-% list(1),
-    {a : b} %<<-% list(1, 2),
     (a / b) %<<-% list(1, 2),
     (a + b) %<<-% list(1, 2),
     (a(b)) %<<-% list(1, list(2))
@@ -21,6 +19,12 @@ test_that("invalid pattern is caught", {
   expect_errors_with_message(
     "pattern can only have names, not calls \\(missing ':'\\?\\)",
     (a()) %<<-% list(1, list(2))
+  )
+  expect_errors_with_message(
+    "pattern must be enclosed in parentheses",
+    a %<<-% list(1),
+    {a} %<<-% list(1),
+    {a : b} %<<-% list(1, 2)
   )
 })
 

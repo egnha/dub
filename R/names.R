@@ -1,8 +1,14 @@
 reify_names <- function(expr, tree) {
+  is_enclosed(expr) %because% "pattern must be enclosed in parentheses"
   nms <- as_strings(expr)
   nms <- eval(nms, cons)[[1]] %unless% "pattern is invalid"
   dots_matched(nms, tree)
 }
+
+is_enclosed <- function(expr) {
+  is.call(expr) && identical(expr[[1]], sym_paren)
+}
+sym_paren <- as.name("(")
 
 cons <- emptyenv() %encloses% list(
   "(" = list,
@@ -24,7 +30,6 @@ as_strings <- function(expr) {
 encloses_bare_name <- function(expr) {
   identical(expr[[1]], sym_paren) && is.symbol(expr[[2]])
 }
-sym_paren <- as.name("(")
 
 as_head <- function(expr) {
   bquote((.(as.character(expr[[2]])) : NULL))
